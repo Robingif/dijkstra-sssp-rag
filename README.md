@@ -3,12 +3,10 @@ title: Dijkstra Shortest Path Grounded RAG Platform
 emoji: 🛣️
 colorFrom: blue
 colorTo: indigo
-sdk: gradio
-sdk_version: 6.30.0
-app_file: app.py
+sdk: static
 pinned: false
 license: apache-2.0
-short_description: Grounded RAG System & Interactive Learning Platform for Dijkstra's Algorithm
+short_description: Grounded RAG Platform for Dijkstra's Algorithm
 ---
 
 # 🛣️ Dijkstra's Shortest Path Algorithm: Grounded RAG & Learning Platform
@@ -82,7 +80,7 @@ dijkstra-rag/
 
 ```bash
 # 1. Clone repository
-git clone https://huggingface.co/spaces/<your-username>/dijkstra-sssp-rag
+git clone https://huggingface.co/spaces/robinsingla/dijkstra-sssp-rag
 cd dijkstra-sssp-rag
 
 # 2. Create virtual environment
@@ -111,7 +109,7 @@ Open `http://127.0.0.1:7860` in your web browser.
 2. Push this repository to your Space:
    ```bash
    git init
-   git remote add space https://huggingface.co/spaces/<your-username>/dijkstra-sssp-rag
+   git remote add space https://huggingface.co/spaces/robinsingla/dijkstra-sssp-rag
    git add .
    git commit -m "Deploy Dijkstra Grounded RAG Platform"
    git push space main

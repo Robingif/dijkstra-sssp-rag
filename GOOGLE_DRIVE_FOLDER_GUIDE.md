@@ -56,4 +56,4 @@ When anyone opens your Google Drive link, they will see a clean, professional, f
 
 ## 🔗 Important External Submission Links to Include in the Form
 - **GitHub Repository**: [https://github.com/Robingif/dijkstra-sssp-rag](https://github.com/Robingif/dijkstra-sssp-rag)
-- **Hugging Face Space (when deployed)**: `https://huggingface.co/spaces/<your-username>/dijkstra-sssp-rag`
+- **Hugging Face Space (when deployed)**: `https://huggingface.co/spaces/robinsingla/dijkstra-sssp-rag`

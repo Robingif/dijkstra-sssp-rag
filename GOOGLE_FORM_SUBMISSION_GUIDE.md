@@ -72,7 +72,7 @@ Both options feature complete synchronized bilingual subtitles (English & Hindi)
 | **Presentation Slide Deck (.pptx)** | Upload `Dijkstra_Algorithm_Complete_Guide.pptx` | `C:\Users\robin\OneDrive\Desktop\Dijkstra_RAG_Submission\static\Dijkstra_Algorithm_Complete_Guide.pptx` |
 | **Official MIT Lecture 16 PDF** | Upload `MIT6_006F11_lec16.pdf` (809 KB) | `C:\Users\robin\OneDrive\Desktop\Dijkstra_RAG_Submission\data\archive\MIT6_006F11_lec16.pdf` |
 | **Sources Manifest (JSON)** | Upload `sources_manifest.json` | `C:\Users\robin\OneDrive\Desktop\Dijkstra_RAG_Submission\data\archive\sources_manifest.json` |
-| **Live App URL (Hugging Face)** | `https://huggingface.co/spaces/<your-username>/dijkstra-sssp-rag` | Deployed via `deploy_hf.py` |
+| **Live App URL (Hugging Face)** | `https://huggingface.co/spaces/robinsingla/dijkstra-sssp-rag` | Deployed via `deploy_hf.py` |
 
 ---
 
