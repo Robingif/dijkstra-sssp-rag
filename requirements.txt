@@ -1,0 +1,9 @@
+gradio>=6.0.0
+numpy
+scikit-learn
+python-pptx
+pypdf
+edge-tts
+matplotlib
+imageio
+imageio-ffmpeg
