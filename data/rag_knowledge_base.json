@@ -1,342 +1,9 @@
 [
   {
-    "chunk_id": "gfg_dijkstra_applications_chunk_0",
-    "source_id": "gfg_dijkstra_applications",
-    "source_name": "Gfg Dijkstra Applications",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "GeeksforGeeks: Real-World Applications of Dijkstra's Algorithm",
-    "content": "# GeeksforGeeks: Real-World Applications of Dijkstra's Algorithm\n\n**Source**: GeeksforGeeks (https://www.geeksforgeeks.org/applications-of-dijkstras-shortest-path-algorithm/)  \n**Topic**: Industrial, Networking, and Systems Applications of Shortest Path Finding  \n\n---",
-    "chunk_type": "application"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_applications_chunk_1",
-    "source_id": "gfg_dijkstra_applications",
-    "source_name": "Gfg Dijkstra Applications",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "1. Network Routing Protocols: OSPF & IS-IS",
-    "content": "## 1. Network Routing Protocols: OSPF & IS-IS\n\nIn computer networking, **OSPF (Open Shortest Path First)** and **IS-IS (Intermediate System to Intermediate System)** are interior gateway routing protocols widely used in the backbone of the Internet and enterprise networks.",
-    "chunk_type": "application"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_applications_chunk_2",
-    "source_id": "gfg_dijkstra_applications",
-    "source_name": "Gfg Dijkstra Applications",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "How OSPF Uses Dijkstra:",
-    "content": "### How OSPF Uses Dijkstra:\n1. **Link-State Advertisements (LSAs)**: Every router floods information about its locally connected links and link costs (metrics such as latency, bandwidth inverse, or congestion).\n2. **Link-State Database (LSDB)**: Each router in an autonomous area constructs an identical topological graph of the network where routers are vertices and transmission links are edges.\n3. **Running the Shortest Path First (SPF) Tree**:\n   - Each router runs **Dijkstra's Algorithm** with itself as the root (`src`).\n   - The computed shortest path tree determines the lowest-cost path to every subnet and destination IP address.\n   - The results populate the router's **Forwarding Information Base (FIB)** or routing table.\n\n---",
-    "chunk_type": "application"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_applications_chunk_3",
-    "source_id": "gfg_dijkstra_applications",
-    "source_name": "Gfg Dijkstra Applications",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "2. Digital Maps & GPS Navigation (Google Maps, Waze, Apple Maps)",
-    "content": "## 2. Digital Maps & GPS Navigation (Google Maps, Waze, Apple Maps)",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_applications_chunk_4",
-    "source_id": "gfg_dijkstra_applications",
-    "source_name": "Gfg Dijkstra Applications",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "The Road Network as a Weighted Graph:",
-    "content": "### The Road Network as a Weighted Graph:\n- **Vertices (V)**: Intersections, highway on/off ramps, roundabouts, and street dead-ends.\n- **Edges (E)**: Road segments connecting intersections.\n- **Edge Weights (w)**: Calculated dynamically as:\n  \n```\nw(e) = \\frac{Length of segment{Speed limit + Traffic congestion penalty + Toll/Turn penalties\n```",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_applications_chunk_5",
-    "source_id": "gfg_dijkstra_applications",
-    "source_name": "Gfg Dijkstra Applications",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "Scaling Dijkstra in Production:",
-    "content": "### Scaling Dijkstra in Production:\n- Standard Dijkstra would be too slow to route across millions of road segments worldwide in real-time.\n- Commercial navigation engines build directly on Dijkstra by incorporating:\n  1. **A* Search**: Guided Dijkstra using an admissible Euclidean distance heuristic h(v) to direct search toward the target destination.\n  2. **Contraction Hierarchies (CH)**: Precomputing shortcut edges on highway backbones, speeding up queries to sub-millisecond response times.\n  3. **Bidirectional Dijkstra**: Running two simultaneous searches—one forward from source and one backward from destination—stopping when the search frontiers intersect.\n\n---",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_applications_chunk_6",
-    "source_id": "gfg_dijkstra_applications",
-    "source_name": "Gfg Dijkstra Applications",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "3. Telecommunications & Optical Fiber Cable Routing",
-    "content": "## 3. Telecommunications & Optical Fiber Cable Routing\n\n- **Bandwidth Allocation & Latency Minimization**:\n  - Telecommunication carriers (e.g., AT&T, Verizon, Jio) route voice calls and high-frequency trading data packets through undersea fiber cables and microwave links.\n  - Edge weights represent signal latency in milliseconds or error rates.\n  - Dijkstra calculates the lowest-latency circuit paths between major financial exchanges (e.g., Chicago CME to New York NASDAQ).\n\n---",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_applications_chunk_7",
-    "source_id": "gfg_dijkstra_applications",
-    "source_name": "Gfg Dijkstra Applications",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "4. Robotics, Autonomous Vehicles & Drone Pathfinding",
-    "content": "## 4. Robotics, Autonomous Vehicles & Drone Pathfinding\n\n- **Grid and Waypoint Graphs**:\n  - A robot's environment is discretized into an occupancy grid or visibility graph.\n  - Edges connect adjacent obstacle-free cells.\n  - Weights represent physical distance, terrain roughness, battery consumption, and obstacle proximity penalties.\n  - Dijkstra provides the collision-free minimum-energy path from the robot's current pose to the goal coordinates.\n\n---",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_applications_chunk_8",
-    "source_id": "gfg_dijkstra_applications",
-    "source_name": "Gfg Dijkstra Applications",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "5. Social Network Analysis & Degree of Separation",
-    "content": "## 5. Social Network Analysis & Degree of Separation\n\n- **Graph Structure**:\n  - Vertices are people or accounts (e.g., LinkedIn, Facebook).\n  - Edges represent friendships or connections.\n  - In weighted social networks, weights reflect interaction frequency, message exchange volume, or mutual friend counts (lower weight = stronger relationship).\n- **Application**:\n  - Calculating the \"Six Degrees of Separation\" or closest professional referral paths.\n  - Recommending connection paths: finding the shortest path from Person A to a hiring manager at a target company.\n\n---",
-    "chunk_type": "application"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_applications_chunk_9",
-    "source_id": "gfg_dijkstra_applications",
-    "source_name": "Gfg Dijkstra Applications",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "6. Flight Routing & Airline Scheduling",
-    "content": "## 6. Flight Routing & Airline Scheduling\n\n- Airports serve as nodes; direct flights are edges.\n- Edge weights combine flight duration, layover waiting time, and ticket fare.\n- Airline booking search engines use multi-criteria Dijkstra variations to compute the cheapest or fastest multi-leg itineraries.",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_matrix_chunk_0",
-    "source_id": "gfg_dijkstra_matrix",
-    "source_name": "Gfg Dijkstra Matrix",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "GeeksforGeeks: Dijkstra's Shortest Path Algorithm (Adjacency Matrix Representation)",
-    "content": "# GeeksforGeeks: Dijkstra's Shortest Path Algorithm (Adjacency Matrix Representation)\n\n**Source**: GeeksforGeeks (https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/)  \n**Topic**: Single Source Shortest Path (SSSP) in Weighted Graphs  \n**Complexity**: Time: O(V²), Space: O(V)  \n**Applicability**: Dense Graphs, Non-negative edge weights  \n\n---",
-    "chunk_type": "complexity"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_matrix_chunk_1",
-    "source_id": "gfg_dijkstra_matrix",
-    "source_name": "Gfg Dijkstra Matrix",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "1. Overview and Problem Definition",
-    "content": "## 1. Overview and Problem Definition\n\nGiven a weighted graph and a designated source vertex `src` in the graph, find the shortest paths from the source to all other vertices in the given graph.\n\n- **Input**: Graph G = (V, E), edge weight function w: E → \\mathbb{R_{≥ 0, and source vertex s in V.\n- **Condition**: All edge weights must be non-negative: for all (u, v) in E, w(u, v) ≥ 0.\n- **Output**: An array `dist[]` where `dist[v]` is the shortest path distance from `src` to `v`.\n\n---",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_matrix_chunk_2",
-    "source_id": "gfg_dijkstra_matrix",
-    "source_name": "Gfg Dijkstra Matrix",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "2. Algorithm Concept and Greedy Strategy",
-    "content": "## 2. Algorithm Concept and Greedy Strategy\n\nDijkstra's algorithm is a **greedy algorithm** that generates a **Shortest Path Tree (SPT)** with the given source as the root. It maintains two sets of vertices:\n1. **SPT Set (`visited[]` or `sptSet[]`)**: Vertices whose shortest distance from the source is already calculated and finalized.\n2. **Unprocessed Set**: Vertices whose shortest distance is not yet finalized.\n\nAt every step of the algorithm:\n1. Find a vertex `u` that is **not yet in `sptSet`** and has the **minimum tentative distance** `dist[u]`.\n2. Include this vertex `u` into `sptSet`.\n3. **Relax** all adjacent vertices `v` of `u`:\n   \n```\nIf  v \\notin sptSet and  dist[u] ≠ ∞  and  dist[u] + weight(u, v) < dist[v]:\n```\n\n   \n```\ndist[v] = dist[u] + weight(u, v)\n```\n\n\n---",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_matrix_chunk_3",
-    "source_id": "gfg_dijkstra_matrix",
-    "source_name": "Gfg Dijkstra Matrix",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "3. Step-by-Step Example (9 Vertices)",
-    "content": "## 3. Step-by-Step Example (9 Vertices)\n\nConsider a graph with 9 vertices (0 to 8) represented as an adjacency matrix:\n- Vertices: `0, 1, 2, 3, 4, 5, 6, 7, 8`\n- Source vertex: `0`",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_matrix_chunk_4",
-    "source_id": "gfg_dijkstra_matrix",
-    "source_name": "Gfg Dijkstra Matrix",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "Initial State:",
-    "content": "### Initial State:\n- `dist = [0, inf, inf, inf, inf, inf, inf, inf, inf]`\n- `sptSet = [False, False, False, False, False, False, False, False, False]`",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_matrix_chunk_5",
-    "source_id": "gfg_dijkstra_matrix",
-    "source_name": "Gfg Dijkstra Matrix",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "Step 1:",
-    "content": "### Step 1:\n- Pick vertex with min dist: `u = 0` (`dist[0] = 0`).\n- Mark `sptSet[0] = True`.\n- Neighbors of 0:\n  - Edge (0, 1) with weight 4: `dist[1] = min(inf, 0 + 4) = 4`\n  - Edge (0, 7) with weight 8: `dist[7] = min(inf, 0 + 8) = 8`\n- `dist = [0, 4, inf, inf, inf, inf, inf, 8, inf]`",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_matrix_chunk_6",
-    "source_id": "gfg_dijkstra_matrix",
-    "source_name": "Gfg Dijkstra Matrix",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "Step 2:",
-    "content": "### Step 2:\n- Pick vertex with min dist not in `sptSet`: `u = 1` (`dist[1] = 4`).\n- Mark `sptSet[1] = True`.\n- Relax neighbors of 1:\n  - Edge (1, 2) weight 8: `dist[2] = min(inf, 4 + 8) = 12`\n  - Edge (1, 7) weight 11: `dist[7] = min(8, 4 + 11) = 8` (no change)",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_matrix_chunk_7",
-    "source_id": "gfg_dijkstra_matrix",
-    "source_name": "Gfg Dijkstra Matrix",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "Repeating until all vertices are in `sptSet`:",
-    "content": "### Repeating until all vertices are in `sptSet`:\n- Final `dist[]` array:\n  - `dist[0] = 0`\n  - `dist[1] = 4`\n  - `dist[2] = 12`\n  - `dist[3] = 19`\n  - `dist[4] = 21`\n  - `dist[5] = 11`\n  - `dist[6] = 9`\n  - `dist[7] = 8`\n  - `dist[8] = 14`\n\n---",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_matrix_chunk_8",
-    "source_id": "gfg_dijkstra_matrix",
-    "source_name": "Gfg Dijkstra Matrix",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "4. Complete Implementation in Python",
-    "content": "## 4. Complete Implementation in Python\n\n```python\nimport sys\n\nclass DijkstraMatrix:\n    def __init__(self, vertices):\n        self.V = vertices\n        self.graph = [[0 for _ in range(vertices)] for _ in range(vertices)]\n\n    def min_distance(self, dist, spt_set):\n        \"\"\"Find the vertex with minimum distance value from the set of vertices not yet in spt_set\"\"\"\n        min_val = sys.maxsize\n        min_index = -1\n        for u in range(self.V):\n            if dist[u] < min_val and not spt_set[u]:\n                min_val = dist[u]\n                min_index = u\n        return min_index\n\n    def dijkstra(self, src):\n        dist = [sys.maxsize] * self.V\n        dist[src] = 0\n        spt_set = [False] * self.V\n        parent = [-1] * self.V\n\n        for _ in range(self.V):\n            u = self.min_distance(dist, spt_set)\n            if u == -1:\n                break\n            spt_set[u] = True\n\n            for v in range(self.V):\n                if (self.graph[u][v] > 0 and \n                    not spt_set[v] and \n                    dist[u] + self.graph[u][v] < dist[v]):\n                    dist[v] = dist[u] + self.graph[u][v]\n                    parent[v] = u\n\n        return dist, parent\n```\n\n---",
-    "chunk_type": "code"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_matrix_chunk_9",
-    "source_id": "gfg_dijkstra_matrix",
-    "source_name": "Gfg Dijkstra Matrix",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "5. Complexity Analysis",
-    "content": "## 5. Complexity Analysis\n\n1. **Time Complexity**:\n   - The outer loop runs V times.\n   - Inside the loop, `min_distance()` linearly scans V vertices: O(V).\n   - Updating distances to adjacent vertices takes O(V) time.\n   - Total Time: V × (O(V) + O(V)) = O(V²).\n   - For dense graphs where E ≈ V², O(V²) is optimal.\n\n2. **Space Complexity**:\n   - Adjacency matrix: O(V²).\n   - `dist[]` and `sptSet[]` arrays: O(V).\n   - Total Space: O(V²) (or O(V) auxiliary if graph is pre-existing).",
-    "chunk_type": "complexity"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_minheap_chunk_0",
-    "source_id": "gfg_dijkstra_minheap",
-    "source_name": "Gfg Dijkstra Minheap",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "GeeksforGeeks: Dijkstra's Algorithm for Adjacency List (Min-Heap / Priority Queue)",
-    "content": "# GeeksforGeeks: Dijkstra's Algorithm for Adjacency List (Min-Heap / Priority Queue)\n\n**Source**: GeeksforGeeks (https://www.geeksforgeeks.org/dijkstras-algorithm-for-adjacency-list-representation-greedy-algo-8/)  \n**Topic**: Optimized Dijkstra using Priority Queues on Sparse Graphs  \n**Complexity**: Time: O((V + E) log V), Space: O(V + E)  \n**Applicability**: Sparse Graphs (E ≪ V²), Non-negative weights  \n\n---",
-    "chunk_type": "complexity"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_minheap_chunk_1",
-    "source_id": "gfg_dijkstra_minheap",
-    "source_name": "Gfg Dijkstra Minheap",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "1. Why Use Min-Heap / Priority Queue?",
-    "content": "## 1. Why Use Min-Heap / Priority Queue?\n\nIn the standard O(V²) implementation, finding the vertex with the minimum distance takes O(V) linear scan time at each iteration.\nFor sparse graphs where E ≪ V², this linear scan dominates runtime.\nBy organizing tentative distances in a **Min-Heap (Priority Queue)**:\n- Finding and extracting the minimum distance vertex (`extract-min`) takes O(log V) instead of O(V).\n- Relaxing an edge requires a `decrease-key` operation in the heap, taking O(log V).\n- Each vertex is extracted once (V log V), and each edge is relaxed at most once (E log V).\n- Total Time Complexity reduces to O((V + E) log V).\n\n---",
-    "chunk_type": "complexity"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_minheap_chunk_2",
-    "source_id": "gfg_dijkstra_minheap",
-    "source_name": "Gfg Dijkstra Minheap",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "2. Priority Queue Strategies: Decrease-Key vs Lazy Deletion",
-    "content": "## 2. Priority Queue Strategies: Decrease-Key vs Lazy Deletion\n\nStandard binary min-heaps in textbook algorithms support an explicit `decrease-key` operation in O(log V) if heap indices are tracked with an auxiliary map.\nIn standard programming languages (Python `heapq`, C++ `std::priority_queue`, Java `PriorityQueue`):\n- Explicit `decrease-key` is not natively supported in constant time without node handles.\n- **The \"Lazy Deletion\" approach** is standard in competitive programming and production:\n  - Whenever a shorter distance to vertex `v` is discovered, simply push a new pair `(new_dist, v)` into the priority queue.\n  - When popping `(dist, u)` from the heap, if `dist > dist[u]`, it represents an outdated, superseded entry; simply `continue` (skip it).\n  - This preserves correctness and achieves the exact same O((V + E) log V) time bound, using at most E entries in the heap.\n\n---",
-    "chunk_type": "complexity"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_minheap_chunk_3",
-    "source_id": "gfg_dijkstra_minheap",
-    "source_name": "Gfg Dijkstra Minheap",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "3. Algorithm Specification",
-    "content": "## 3. Algorithm Specification\n\n```text\nAlgorithm Dijkstra_MinHeap(Graph G, Source s):\n1. Create distance array dist[] of size V, set dist[s] = 0, dist[v] = infinity for all v != s.\n2. Initialize Min-Priority-Queue PQ.\n3. Insert (0, s) into PQ.\n4. While PQ is not empty:\n     a. (d, u) = PQ.pop()\n     b. If d > dist[u]: continue   // Skip stale entries\n     c. For each neighbor (v, weight) in G.adj[u]:\n          If dist[u] + weight < dist[v]:\n             dist[v] = dist[u] + weight\n             parent[v] = u\n             PQ.push((dist[v], v))\n5. Return dist[], parent[]\n```\n\n---",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_minheap_chunk_4",
-    "source_id": "gfg_dijkstra_minheap",
-    "source_name": "Gfg Dijkstra Minheap",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "4. Production Python Implementation using `heapq`",
-    "content": "## 4. Production Python Implementation using `heapq`\n\n```python\nimport heapq\nfrom typing import List, Tuple, Dict\n\ndef dijkstra_min_heap(V: int, adj: List[List[Tuple[int, int]]], src: int) -> Tuple[List[float], List[int]]:\n    \"\"\"\n    Computes single-source shortest paths using an adjacency list and min-heap.\n    \n    Args:\n        V: Number of vertices (0 to V-1)\n        adj: Adjacency list where adj[u] contains (v, weight) tuples\n        src: Starting vertex\n        \n    Returns:\n        (dist, parent): Shortest distances and path predecessors\n    \"\"\"\n    dist = [float('inf')] * V\n    parent = [-1] * V\n    dist[src] = 0.0\n    \n    # Priority queue stores tuples of (distance, vertex)\n    pq = [(0.0, src)]\n    \n    while pq:\n        current_dist, u = heapq.heappop(pq)\n        \n        # Lazy deletion: skip if we've already found a shorter path to u\n        if current_dist > dist[u]:\n            continue\n            \n        for v, weight in adj[u]:\n            if dist[u] + weight < dist[v]:\n                dist[v] = dist[u] + weight\n                parent[v] = u\n                heapq.heappush(pq, (dist[v], v))\n                \n    return dist, parent\n```\n\n---",
-    "chunk_type": "code"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_minheap_chunk_5",
-    "source_id": "gfg_dijkstra_minheap",
-    "source_name": "Gfg Dijkstra Minheap",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "5. Detailed Asymptotic Analysis",
-    "content": "## 5. Detailed Asymptotic Analysis\n\n| Operation | Total Calls | Cost per Call (Binary Heap) | Total Cost |\n| :--- | :--- | :--- | :--- |\n| `heap_insert` (initial) | 1 | O(log V) | O(log V) |\n| `extract_min` | V | O(log V) | O(V log V) |\n| `relax_edge` / `heap_push` | E | O(log V) | O(E log V) |\n| **Total Time** | | | **O((V + E) log V)** |\n\n- **Dense Graphs (E ≈ V²)**: O(V² log V) — slightly slower than adjacency matrix O(V²) due to heap overhead.\n- **Sparse Graphs (E = O(V))**: O(V log V) — vastly superior to O(V²). For V = 100,000 and E = 200,000, O(V log V) ≈ 3.3 × 10^6 ops vs O(V²) ≈ 10^{10 ops!",
-    "chunk_type": "complexity"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_negative_weights_chunk_0",
-    "source_id": "gfg_dijkstra_negative_weights",
-    "source_name": "Gfg Dijkstra Negative Weights",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "GeeksforGeeks: Why Dijkstra's Algorithm Fails on Negative Weights and Negative Cycles",
-    "content": "# GeeksforGeeks: Why Dijkstra's Algorithm Fails on Negative Weights and Negative Cycles\n\n**Source**: GeeksforGeeks (https://www.geeksforgeeks.org/why-does-dijkstras-algorithm-fail-on-negative-weights/)  \n**Topic**: Algorithm Correctness, Invariant Breakdown, and Counterexamples  \n**Key Takeaway**: Dijkstra's algorithm fundamentally relies on the greedy assumption that adding an edge to a path can never decrease its total weight. Negative edges violate this assumption.\n\n---",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_negative_weights_chunk_1",
-    "source_id": "gfg_dijkstra_negative_weights",
-    "source_name": "Gfg Dijkstra Negative Weights",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "1. The Core Greedy Assumption",
-    "content": "## 1. The Core Greedy Assumption\n\nDijkstra's algorithm is built on the following invariant:\n> **The Greedy Invariant**: Once a vertex u is extracted from the priority queue / marked as included in the Shortest Path Tree (`sptSet[u] = True`), its tentative distance `dist[u]` is strictly optimal and will never decrease in the future.\n\nThis invariant is proven by induction under the strict premise that **all edge weights w(u, v) ≥ 0**.\nBecause all edge weights are non-negative, any alternative unexamined path from source to u that passes through other unprocessed vertices must accumulate additional non-negative costs:\n\n```\nCost(Path) = dist[v] + sum w(e) ≥ dist[u]\n```\n\nSince dist[v] ≥ dist[u] at the moment u is selected, no longer path can ever be strictly shorter.\n\n---",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_negative_weights_chunk_2",
-    "source_id": "gfg_dijkstra_negative_weights",
-    "source_name": "Gfg Dijkstra Negative Weights",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "2. How Negative Weights Break the Invariant",
-    "content": "## 2. How Negative Weights Break the Invariant\n\nWhen negative edge weights are present (w(u, v) < 0):\n- Adding an edge can **decrease** the total path length.\n- A path through an unvisited vertex with higher initial distance can suddenly become shorter if it traverses a large negative edge.\n- However, because Dijkstra's algorithm **never re-evaluates or re-inserts a finalized vertex**, it will output suboptimal distances or even enter an infinite cycle if negative cycles exist!\n\n---",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_negative_weights_chunk_3",
-    "source_id": "gfg_dijkstra_negative_weights",
-    "source_name": "Gfg Dijkstra Negative Weights",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "3. Concrete 3-Node Counterexample",
-    "content": "## 3. Concrete 3-Node Counterexample\n\nConsider a directed graph with 3 vertices: `A (Source)`, `B`, and `C`:\n- Edge (A, B) with weight +5\n- Edge (A, C) with weight +2\n- Edge (B, C) with weight -6\n\n```text\n       (A)\n      /   \\\n  +5 /     \\ +2\n    v       v\n   (B)----->(C)\n       -6\n```",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_negative_weights_chunk_4",
-    "source_id": "gfg_dijkstra_negative_weights",
-    "source_name": "Gfg Dijkstra Negative Weights",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "Trace with Dijkstra's Algorithm:",
-    "content": "### Trace with Dijkstra's Algorithm:\n1. Initialize: `dist[A] = 0`, `dist[B] = inf`, `dist[C] = inf`.\n2. Extract A (`dist[A] = 0`):\n   - Relax (A, B) \\implies dist[B] = 0 + 5 = 5.\n   - Relax (A, C) \\implies dist[C] = 0 + 2 = 2.\n   - Priority Queue: `[(2, C), (5, B)]`. Finalize A.\n3. Extract minimum from PQ: C (`dist[C] = 2`):\n   - Finalize C (marked visited).\n   - C has no outgoing edges.\n4. Extract B (`dist[B] = 5`):\n   - Finalize B.\n   - Examine outgoing edge (B, C) with weight -6:\n     \n```\ndist[B] + (-6) = 5 - 6 = -1\n```\n\n   - Since C has **already been finalized**, standard Dijkstra either:\n     a) Ignores C because C is in `sptSet`, leaving `dist[C] = 2` (**INCORRECT**: true shortest path is A → B → C = -1).\n     b) Or if un-finalized, introduces non-terminating cycles on negative loops.\n\n---",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_negative_weights_chunk_5",
-    "source_id": "gfg_dijkstra_negative_weights",
-    "source_name": "Gfg Dijkstra Negative Weights",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "4. Negative Cycles",
-    "content": "## 4. Negative Cycles\n\nA **negative weight cycle** is a cycle where the sum of edge weights is strictly negative:\n\n```\nsum_{e \\in C w(e) < 0\n```\n\n- If a graph contains a negative cycle reachable from the source, shortest paths to all vertices reachable from that cycle are **undefined (-∞)**, because one can traverse the cycle infinitely many times to decrease the path cost arbitrarily.\n- Dijkstra's algorithm cannot detect negative cycles and will either give incorrect answers or loop infinitely.\n\n---",
-    "chunk_type": "text"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_negative_weights_chunk_6",
-    "source_id": "gfg_dijkstra_negative_weights",
-    "source_name": "Gfg Dijkstra Negative Weights",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "5. What to Use Instead: Algorithm Comparison",
-    "content": "## 5. What to Use Instead: Algorithm Comparison\n\n| Scenario | Recommended Algorithm | Time Complexity | Negative Edges? | Negative Cycle Detection? |\n| :--- | :--- | :--- | :--- | :--- |\n| **All weights ≥ 0 (Sparse)** | **Dijkstra (Min-Heap)** | O((V + E) log V) | ❌ Fails | ❌ Cannot detect |\n| **All weights ≥ 0 (Dense)** | **Dijkstra (Matrix)** | O(V²) | ❌ Fails | ❌ Cannot detect |\n| **General weights (Directed/DAG)** | **Topological Sort Relaxation** | O(V + E) | ✅ Works | ✅ Works (DAG has no cycles) |\n| **General weights (Arbitrary graph)** | **Bellman-Ford Algorithm** | O(V · E) | ✅ Works | ✅ Detects negative cycles |\n| **All-Pairs Shortest Paths** | **Floyd-Warshall** | O(V³) | ✅ Works (No neg cycles) | ✅ Detects on diagonal d[i][i] < 0 |\n| **All-Pairs Sparse with Negative Edges** | **Johnson's Algorithm** | O(V² log V + VE) | ✅ Uses Bellman-Ford reweighting | ✅ Detects negative cycles |",
-    "chunk_type": "complexity"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_set_chunk_0",
-    "source_id": "gfg_dijkstra_set",
-    "source_name": "Gfg Dijkstra Set",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "GeeksforGeeks: Dijkstra's Algorithm using `std::set` in C++ STL",
-    "content": "# GeeksforGeeks: Dijkstra's Algorithm using `std::set` in C++ STL\n\n**Source**: GeeksforGeeks (https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-using-set-in-stl/)  \n**Topic**: Implementing Dijkstra with Self-Balancing Binary Search Trees  \n**Complexity**: Time: O((V + E) log V), Space: O(V)  \n\n---",
-    "chunk_type": "complexity"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_set_chunk_1",
-    "source_id": "gfg_dijkstra_set",
-    "source_name": "Gfg Dijkstra Set",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "1. Motivation: Why `std::set` over `std::priority_queue`?",
-    "content": "## 1. Motivation: Why `std::set` over `std::priority_queue`?\n\nIn C++ STL, `std::priority_queue` does not support the `decrease-key` operation.\nAs a result, when using `priority_queue`, we must push redundant pairs `(new_dist, v)` into the queue and rely on lazy deletion, causing the queue size to grow up to O(E).\n\nIn contrast, **`std::set` in C++** is implemented as a Red-Black Tree (Self-Balancing BST):\n- It stores unique elements in sorted order.\n- It supports logarithmic lookup, insertion, and **deletion (`set::erase`)** in O(log N).\n- This enables an explicit `decrease-key` emulation:\n  1. If vertex `v` has already been inserted with distance `dist[v]`, find and **erase** `(dist[v], v)` from the set.\n  2. Insert the updated pair `(new_dist, v)` into the set.\n- Consequently, the set contains at most **V elements at any given time**, keeping space bounded by O(V) rather than O(E).\n\n---",
-    "chunk_type": "complexity"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_set_chunk_2",
-    "source_id": "gfg_dijkstra_set",
-    "source_name": "Gfg Dijkstra Set",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "2. Complete C++ Implementation using `std::set`",
-    "content": "## 2. Complete C++ Implementation using `std::set`\n\n```cpp\n#include <iostream>\n#include <vector>\n#include <set>\n\nusing namespace std;\n\nconst int INF = 1e9;\n\n// Structure to represent an edge (target_node, weight)\ntypedef pair<int, int> pii;\n\nvoid dijkstraSet(int V, const vector<vector<pii>>& adj, int src) {\n    // Distance vector initialized to infinity\n    vector<int> dist(V, INF);\n    dist[src] = 0;\n\n    // Set stores pairs of (distance, vertex)\n    set<pair<int, int>> st;\n    st.insert({0, src});\n\n    while (!st.empty()) {\n        // Extract the minimum distance vertex\n        auto top = *(st.begin());\n        st.erase(st.begin());\n\n        int d = top.first;\n        int u = top.second;\n\n        // Traverse all adjacent edges of vertex u\n        for (const auto& edge : adj[u]) {\n            int v = edge.first;\n            int weight = edge.second;\n\n            // Relaxation condition\n            if (dist[u] + weight < dist[v]) {\n                // If vertex v is already present in the set with an older distance, erase it\n                if (dist[v] != INF) {\n                    st.erase(st.find({dist[v], v}));\n                }\n\n                // Update distance and insert new pair\n                dist[v] = dist[u] + weight;\n                st.insert({dist[v], v});\n            }\n        }\n    }\n\n    // Print calculated shortest distances\n    cout << \"Vertex\\tDistance from Source (\" << src << \")\\n\";\n    for (int i = 0; i < V; ++i) {\n        cout << i << \"\\t\" << (dist[i] == INF ? -1 : dist[i]) << \"\\n\";\n    }\n}\n```\n\n---",
-    "chunk_type": "code"
-  },
-  {
-    "chunk_id": "gfg_dijkstra_set_chunk_3",
-    "source_id": "gfg_dijkstra_set",
-    "source_name": "Gfg Dijkstra Set",
-    "source_url": "https://www.geeksforgeeks.org/",
-    "title": "3. Comparison: `std::set` vs `std::priority_queue`",
-    "content": "## 3. Comparison: `std::set` vs `std::priority_queue`\n\n| Feature | `std::set` | `std::priority_queue` |\n| :--- | :--- | :--- |\n| **Underlying Data Structure** | Red-Black Tree (Self-balancing BST) | Binary Heap (Contiguous Array / Vector) |\n| **Max Container Size** | V | E (due to duplicates) |\n| **Cache Locality** | Lower (node-based pointer chasing) | Higher (flat array representation) |\n| **Constant Factors** | Higher constant multiplier | Lower constant multiplier |\n| **Typical Execution Speed** | Slightly slower in practice | Often faster despite duplicate entries |",
-    "chunk_type": "text"
-  },
-  {
     "chunk_id": "mit_6006_lec16_dijkstra_chunk_0",
     "source_id": "mit_6006_lec16_dijkstra",
-    "source_name": "Mit 6006 Lec16 Dijkstra",
-    "source_url": "https://www.geeksforgeeks.org/",
+    "source_name": "MIT 6.006 Complete Lecture 16 Notes & Recitation Review",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
     "title": "MIT 6.006: Introduction to Algorithms — Lecture 16: Dijkstra's Algorithm",
     "content": "# MIT 6.006: Introduction to Algorithms — Lecture 16: Dijkstra's Algorithm\n\n**Instructors**: Prof. Erik Demaine & Prof. Srinivas Devadas  \n**Institution**: Massachusetts Institute of Technology (MIT OpenCourseWare)  \n**Course**: 6.006 Introduction to Algorithms, Fall 2011  \n**Resource URL**: https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/resources/mit6_006f11_lec16/  \n**Video Reference**: https://www.youtube.com/watch?v=2E7MmKv0Y24  \n\n---",
     "chunk_type": "text"
@@ -344,8 +11,8 @@
   {
     "chunk_id": "mit_6006_lec16_dijkstra_chunk_1",
     "source_id": "mit_6006_lec16_dijkstra",
-    "source_name": "Mit 6006 Lec16 Dijkstra",
-    "source_url": "https://www.geeksforgeeks.org/",
+    "source_name": "MIT 6.006 Complete Lecture 16 Notes & Recitation Review",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
     "title": "1. Lecture Context and Overview",
     "content": "## 1. Lecture Context and Overview\n\nProf. Erik Demaine and Prof. Srinivas Devadas present the general framework for Single-Source Shortest Paths (SSSP) on weighted directed graphs G = (V, E, w).",
     "chunk_type": "text"
@@ -353,8 +20,8 @@
   {
     "chunk_id": "mit_6006_lec16_dijkstra_chunk_2",
     "source_id": "mit_6006_lec16_dijkstra",
-    "source_name": "Mit 6006 Lec16 Dijkstra",
-    "source_url": "https://www.geeksforgeeks.org/",
+    "source_name": "MIT 6.006 Complete Lecture 16 Notes & Recitation Review",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
     "title": "Core Definitions:",
     "content": "### Core Definitions:\n- **Path Weight**: For path p = \\langle v_0, v_1, \\dots, v_k \\rangle:\n  \n```\nw(p) = sum_{i=1^k w(v_{i-1, v_i)\n```\n\n- **Shortest-Path Weight**:\n  \n```\nδ(s, v) = \\begin{cases \\min \\{w(p) : s \\overset{p{≤adsto v\\ & if path exists \\\\ ∞ & otherwise \\end{cases\n```\n\n- **Optimal Substructure**: Subpaths of shortest paths are shortest paths. If p = u \\overset{p_{uv{≤adsto v \\overset{p_{vw{≤adsto w is a shortest path from u to w, then p_{uv is a shortest path from u to v.\n\n---",
     "chunk_type": "text"
@@ -362,8 +29,8 @@
   {
     "chunk_id": "mit_6006_lec16_dijkstra_chunk_3",
     "source_id": "mit_6006_lec16_dijkstra",
-    "source_name": "Mit 6006 Lec16 Dijkstra",
-    "source_url": "https://www.geeksforgeeks.org/",
+    "source_name": "MIT 6.006 Complete Lecture 16 Notes & Recitation Review",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
     "title": "2. The General Edge Relaxation Framework",
     "content": "## 2. The General Edge Relaxation Framework\n\nAll shortest-path algorithms in the course maintain two attributes for each vertex v in V:\n1. d[v]: Tentative shortest-path estimate (always an upper bound: d[v] ≥ δ(s, v)).\n2. π[v]: Predecessor vertex on the shortest path from s to v.",
     "chunk_type": "text"
@@ -371,8 +38,8 @@
   {
     "chunk_id": "mit_6006_lec16_dijkstra_chunk_4",
     "source_id": "mit_6006_lec16_dijkstra",
-    "source_name": "Mit 6006 Lec16 Dijkstra",
-    "source_url": "https://www.geeksforgeeks.org/",
+    "source_name": "MIT 6.006 Complete Lecture 16 Notes & Recitation Review",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
     "title": "Initialization (`Initialize-Single-Source(G, s)`):",
     "content": "### Initialization (`Initialize-Single-Source(G, s)`):\n```text\nfor each v in V:\n    d[v] = infinity\n    pi[v] = NIL\nd[s] = 0\n```",
     "chunk_type": "text"
@@ -380,8 +47,8 @@
   {
     "chunk_id": "mit_6006_lec16_dijkstra_chunk_5",
     "source_id": "mit_6006_lec16_dijkstra",
-    "source_name": "Mit 6006 Lec16 Dijkstra",
-    "source_url": "https://www.geeksforgeeks.org/",
+    "source_name": "MIT 6.006 Complete Lecture 16 Notes & Recitation Review",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
     "title": "The Relaxation Step (`Relax(u, v, w)`):",
     "content": "### The Relaxation Step (`Relax(u, v, w)`):\n```text\nif d[v] > d[u] + w(u, v):\n    d[v] = d[u] + w(u, v)\n    pi[v] = u\n```",
     "chunk_type": "text"
@@ -389,8 +56,8 @@
   {
     "chunk_id": "mit_6006_lec16_dijkstra_chunk_6",
     "source_id": "mit_6006_lec16_dijkstra",
-    "source_name": "Mit 6006 Lec16 Dijkstra",
-    "source_url": "https://www.geeksforgeeks.org/",
+    "source_name": "MIT 6.006 Complete Lecture 16 Notes & Recitation Review",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
     "title": "Key Mathematical Invariants of Relaxation:",
     "content": "### Key Mathematical Invariants of Relaxation:\n1. **Upper-Bound Property**: d[v] ≥ δ(s, v) for all v in V at all times. Once d[v] reaches δ(s, v), it never changes.\n2. **Triangle Inequality**: For any edge (u, v) in E, δ(s, v) ≤ δ(s, u) + w(u, v).\n3. **Convergence Property**: If s ≤adsto u → v is a shortest path, and d[u] = δ(s, u) prior to relaxing edge (u, v), then d[v] = δ(s, v) after the relaxation.\n4. **Path-Relaxation Property**: If p = \\langle v_0, v_1, \\dots, v_k \\rangle is a shortest path from s = v_0 to v_k, and edges of p are relaxed in sequence (v_0, v_1), (v_1, v_2), \\dots, (v_{k-1, v_k), then d[v_k] = δ(s, v_k) regardless of other relaxations.\n\n---",
     "chunk_type": "text"
@@ -398,8 +65,8 @@
   {
     "chunk_id": "mit_6006_lec16_dijkstra_chunk_7",
     "source_id": "mit_6006_lec16_dijkstra",
-    "source_name": "Mit 6006 Lec16 Dijkstra",
-    "source_url": "https://www.geeksforgeeks.org/",
+    "source_name": "MIT 6.006 Complete Lecture 16 Notes & Recitation Review",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
     "title": "3. Dijkstra's Algorithm (Non-Negative Weights: w(u, v) ≥ 0)",
     "content": "## 3. Dijkstra's Algorithm (Non-Negative Weights: w(u, v) ≥ 0)\n\nProf. Devadas presents Dijkstra's algorithm as a **generalization of Breadth-First Search (BFS)** where unit-cost edges are replaced by arbitrary non-negative weights, and the FIFO queue is replaced by a priority queue:\n\n```text\nDijkstra(G, w, s):\n1. Initialize-Single-Source(G, s)\n2. S = empty_set                // Set of vertices whose final shortest paths are determined\n3. Q = V[G]                      // Priority queue keyed by d[] values\n4. while Q is not empty:\n5.     u = Extract-Min(Q)\n6.     S = S union {u}\n7.     for each vertex v in Adj[u]:\n8.         Relax(u, v, w)\n```\n\n---",
     "chunk_type": "text"
@@ -407,8 +74,8 @@
   {
     "chunk_id": "mit_6006_lec16_dijkstra_chunk_8",
     "source_id": "mit_6006_lec16_dijkstra",
-    "source_name": "Mit 6006 Lec16 Dijkstra",
-    "source_url": "https://www.geeksforgeeks.org/",
+    "source_name": "MIT 6.006 Complete Lecture 16 Notes & Recitation Review",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
     "title": "4. Correctness Proof (Loop Invariant)",
     "content": "## 4. Correctness Proof (Loop Invariant)\n\n**Theorem**: At the start of each iteration of the while loop, d[u] = δ(s, u) for every vertex u in S.",
     "chunk_type": "proof"
@@ -416,8 +83,8 @@
   {
     "chunk_id": "mit_6006_lec16_dijkstra_chunk_9",
     "source_id": "mit_6006_lec16_dijkstra",
-    "source_name": "Mit 6006 Lec16 Dijkstra",
-    "source_url": "https://www.geeksforgeeks.org/",
+    "source_name": "MIT 6.006 Complete Lecture 16 Notes & Recitation Review",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
     "title": "Proof by Contradiction:",
     "content": "### Proof by Contradiction:\nSuppose u is the first vertex added to S for which d[u] ≠ δ(s, u).\nSince d[s] = 0 = δ(s, s), u ≠ s, so S ≠ \\emptyset just before adding u.\nLet p be a true shortest path from s to u.\nSince s in S and u \\notin S, path p must at some point leave S.\nLet (x, y) be the first edge on p such that x in S and y \\notin S (potentially y = u).\n\n1. Because x in S, and u was the *first* error, x was correctly finalized: d[x] = δ(s, x).\n2. When x was added to S, edge (x, y) was relaxed, so by the Convergence Property:\n   \n```\nd[y] = δ(s, y)\n```\n\n3. Because edge weights are **non-negative** (w ≥ 0), subpath distances are non-decreasing along p:\n   \n```\nδ(s, y) ≤ δ(s, u)\n```\n\n4. By the Upper-Bound Property, d[u] ≥ δ(s, u), so:\n   \n```\nd[y] = δ(s, y) ≤ δ(s, u) ≤ d[u]\n```\n\n5. But the algorithm chose u from Q instead of y, meaning d[u] ≤ d[y].\n6. Therefore:\n   \n```\nd[y] = δ(s, y) = δ(s, u) = d[u]\n```\n\nContradicting our assumption that d[u] ≠ δ(s, u)!\nHence, d[u] = δ(s, u) when u is added to S.\n\n---",
     "chunk_type": "proof"
@@ -425,11 +92,290 @@
   {
     "chunk_id": "mit_6006_lec16_dijkstra_chunk_10",
     "source_id": "mit_6006_lec16_dijkstra",
-    "source_name": "Mit 6006 Lec16 Dijkstra",
-    "source_url": "https://www.geeksforgeeks.org/",
+    "source_name": "MIT 6.006 Complete Lecture 16 Notes & Recitation Review",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
     "title": "5. Summary of Data Structure Running Times",
     "content": "## 5. Summary of Data Structure Running Times\n\n| Priority Queue Implementation | `Extract-Min` Time | `Decrease-Key` Time | Total Dijkstra Runtime | Optimal For |\n| :--- | :--- | :--- | :--- | :--- |\n| **Array (Unsorted)** | O(V) | O(1) | O(V² + E) = O(V²) | Dense graphs (E ≈ V²) |\n| **Binary Min-Heap** | O(log V) | O(log V) | O((V + E) log V) | Sparse graphs (E ≪ V²) |\n| **Fibonacci Heap** | O(log V) (amortized) | O(1) (amortized) | O(V log V + E) | Asymptotically fastest |",
     "chunk_type": "complexity"
+  },
+  {
+    "chunk_id": "mit_ocw_balls_and_strings_intuition_chunk_0",
+    "source_id": "mit_ocw_balls_and_strings_intuition",
+    "source_name": "Balls-and-Strings Physical Model, DAG Shortest Paths & Applications",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "MIT 6.006 Fall 2011: Balls and String Physical Intuition & Shortest Path Variations",
+    "content": "# MIT 6.006 Fall 2011: Balls and String Physical Intuition & Shortest Path Variations\n**Course**: MIT 6.006 / 6.046J (Prof. Erik Demaine & Prof. Srinivas Devadas)  \n**Source**: MIT OpenCourseWare Lecture 16",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_balls_and_strings_intuition_chunk_1",
+    "source_id": "mit_ocw_balls_and_strings_intuition",
+    "source_name": "Balls-and-Strings Physical Model, DAG Shortest Paths & Applications",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "1. Prof. Erik Demaine's Physical Demonstration: Balls and Strings",
+    "content": "## 1. Prof. Erik Demaine's Physical Demonstration: Balls and Strings\nIn Lecture 16, Prof. Erik Demaine introduces a famous physical model to provide an intuitive understanding of Dijkstra's algorithm:",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_balls_and_strings_intuition_chunk_2",
+    "source_id": "mit_ocw_balls_and_strings_intuition",
+    "source_name": "Balls-and-Strings Physical Model, DAG Shortest Paths & Applications",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "The Physical System:",
+    "content": "### The Physical System:\n- Imagine every vertex in the graph is a small wooden ball.\n- For every directed or undirected edge (u, v) with weight w(u, v), tie a string of length w(u, v) between ball u and ball v.\n- Place all balls on a table.\n- Now, grasp the source ball s with your fingers and pull it straight up off the table.",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_balls_and_strings_intuition_chunk_3",
+    "source_id": "mit_ocw_balls_and_strings_intuition",
+    "source_name": "Balls-and-Strings Physical Model, DAG Shortest Paths & Applications",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "What Happens Physically:",
+    "content": "### What Happens Physically:\n1. As you lift source ball s, balls attached to s by taut strings are lifted off the table one by one.\n2. The distance a ball rises corresponds exactly to the shortest path distance delta(s, v)!\n3. The sequence in which the balls leave the table corresponds exactly to the order in which Dijkstra's EXTRACT-MIN extracts vertices from the priority queue!\n4. The taut strings connecting the lifted balls form the **Shortest Path Tree (SPT)**.",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_balls_and_strings_intuition_chunk_4",
+    "source_id": "mit_ocw_balls_and_strings_intuition",
+    "source_name": "Balls-and-Strings Physical Model, DAG Shortest Paths & Applications",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "Why this intuition proves non-negative weights are required:",
+    "content": "### Why this intuition proves non-negative weights are required:\nA string cannot have a negative physical length! A string of negative length would push balls away rather than pull them taut, breaking the physical invariant that strings only pull when taut.",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_balls_and_strings_intuition_chunk_5",
+    "source_id": "mit_ocw_balls_and_strings_intuition",
+    "source_name": "Balls-and-Strings Physical Model, DAG Shortest Paths & Applications",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "2. Shortest Paths in Directed Acyclic Graphs (DAGs)",
+    "content": "## 2. Shortest Paths in Directed Acyclic Graphs (DAGs)\nProf. Srinivas Devadas highlights that if a graph has no cycles (a Directed Acyclic Graph, or DAG), we can solve the Single-Source Shortest Paths problem even faster than Dijkstra, and even with negative weights:\n\n1. **Step 1**: Topologically sort the vertices of the DAG in O(V + E) time.\n2. **Step 2**: Make one single pass over the vertices in topologically sorted order, relaxing all outgoing edges from each vertex:\n   `\text\n   DAG-SHORTEST-PATHS(G, w, s):\n       topologically sort vertices of G\n       INITIALIZE-SINGLE-SOURCE(G, s)\n       for each vertex u in topologically sorted order:\n           for each vertex v in Adj[u]:\n               RELAX(u, v, w)\n   `\n3. **Total Runtime**: Exactly Theta(V + E) linear time!\n4. **Key Insight**: Because there are no cycles in a DAG, there can be no negative cycles. Topological ordering guarantees that when we process vertex u, all possible paths that could reach u have already been relaxed.",
+    "chunk_type": "complexity"
+  },
+  {
+    "chunk_id": "mit_ocw_balls_and_strings_intuition_chunk_6",
+    "source_id": "mit_ocw_balls_and_strings_intuition",
+    "source_name": "Balls-and-Strings Physical Model, DAG Shortest Paths & Applications",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "3. Real-World Applications Discussed in MIT 6.006",
+    "content": "## 3. Real-World Applications Discussed in MIT 6.006\nProf. Demaine and Prof. Devadas discuss how SSSP algorithms are foundational to modern infrastructure:\n- **Internet Protocol Routing (OSPF & IS-IS)**: Routers running Open Shortest Path First exchange link state advertisements and independently execute Dijkstra's algorithm to compute the shortest routing paths for IP packets.\n- **Road Network Routing (Google Maps / GPS)**: Road maps are modeled as large graphs where intersections are vertices and road segments are edges weighted by traversal time. Dijkstra and its heuristic derivative A* compute optimal driving directions.\n- **State Space Planning in Robotics**: Robotic motion planning discretizes obstacle-free configuration space into graph nodes, using shortest path graph traversal to compute collision-free trajectories.",
+    "chunk_type": "application"
+  },
+  {
+    "chunk_id": "mit_ocw_dijkstra_core_chunk_0",
+    "source_id": "mit_ocw_dijkstra_core",
+    "source_name": "Dijkstra SSSP Formulation, Greedy Strategy & Pseudocode",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "MIT 6.006 Fall 2011: Lecture 16 — Shortest Paths II: Dijkstra's Algorithm",
+    "content": "# MIT 6.006 Fall 2011: Lecture 16 — Shortest Paths II: Dijkstra's Algorithm\n**Course**: MIT 6.006 Introduction to Algorithms / MIT 6.046J Design and Analysis of Algorithms  \n**Instructors**: Prof. Erik Demaine and Prof. Srinivas Devadas  \n**Department**: Electrical Engineering and Computer Science, Massachusetts Institute of Technology  \n**Source**: MIT OpenCourseWare (https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/) & Lecture 16 Video (https://www.youtube.com/playlist?list=PLUl4u3cNGP6317WaSNfmCvGym2ucw3oGp)  \n**Assigned Readings**: CLRS (Cormen, Leiserson, Rivest, Stein), Sections 24.2 - 24.3",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_dijkstra_core_chunk_1",
+    "source_id": "mit_ocw_dijkstra_core",
+    "source_name": "Dijkstra SSSP Formulation, Greedy Strategy & Pseudocode",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "1. Problem Formulation: Single-Source Shortest Paths (SSSP)",
+    "content": "## 1. Problem Formulation: Single-Source Shortest Paths (SSSP)\nIn MIT 6.006 Lecture 16, Prof. Erik Demaine and Prof. Srinivas Devadas define the Single-Source Shortest Paths (SSSP) problem on a weighted directed or undirected graph G = (V, E) with weight function w: E -> Real Numbers.\n\n- **Objective**: Given a designated source vertex s in V, compute the minimum weight path from s to every reachable vertex v in V.\n- **Shortest Path Weight (delta(s, v))**: The weight of the shortest path from s to v:\n  delta(s, v) = min { w(p) : p is a path from s to v }. If v is unreachable from s, delta(s, v) = infinity.\n- **Fundamental Assumption for Dijkstra**: For every edge (u, v) in E, we assume non-negative edge weights: w(u, v) >= 0.",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_dijkstra_core_chunk_2",
+    "source_id": "mit_ocw_dijkstra_core",
+    "source_name": "Dijkstra SSSP Formulation, Greedy Strategy & Pseudocode",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "2. Vertex State Variables",
+    "content": "## 2. Vertex State Variables\nDuring the execution of Dijkstra's algorithm, each vertex v maintains two key attributes:\n1. **Tentative Distance (d[v])**: An upper bound on the true shortest path weight delta(s, v). Initially, d[s] = 0 and d[v] = infinity for all v != s.\n2. **Predecessor Pointer (pi[v])**: The predecessor of v along the current candidate shortest path from s. Initially, pi[v] = NIL for all v.\n\nThrough iterative edge relaxation, d[v] decreases monotonically until it reaches the true shortest path distance delta(s, v), at which point pi forms a directed Shortest Path Tree (SPT) rooted at s.",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_dijkstra_core_chunk_3",
+    "source_id": "mit_ocw_dijkstra_core",
+    "source_name": "Dijkstra SSSP Formulation, Greedy Strategy & Pseudocode",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "3. Dijkstra's Algorithm Pseudocode (CLRS / MIT 6.006)",
+    "content": "## 3. Dijkstra's Algorithm Pseudocode (CLRS / MIT 6.006)\nProf. Erik Demaine presents Dijkstra's algorithm using a Priority Queue Q:\n\n`\text\nDIJKSTRA(G, w, s):\n    INITIALIZE-SINGLE-SOURCE(G, s)\n    S = empty_set                     // S will store vertices whose final shortest paths are determined\n    Q = V[G]                          // Build priority queue Q with all vertices keyed by d[v]\n    \n    while Q is not empty:\n        u = EXTRACT-MIN(Q)            // Greedily extract vertex with smallest tentative distance d[u]\n        S = S union {u}               // Finalize vertex u into set S\n        \n        for each vertex v in Adj[u]:\n            RELAX(u, v, w)            // Implicit DECREASE-KEY operation in priority queue Q\n`\n\n`\text\nINITIALIZE-SINGLE-SOURCE(G, s):\n    for each vertex v in V[G]:\n        d[v] = infinity\n        pi[v] = NIL\n    d[s] = 0\n`",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_dijkstra_core_chunk_4",
+    "source_id": "mit_ocw_dijkstra_core",
+    "source_name": "Dijkstra SSSP Formulation, Greedy Strategy & Pseudocode",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "4. The Greedy Strategy",
+    "content": "## 4. The Greedy Strategy\nDijkstra's algorithm is fundamentally a **greedy algorithm**. At every iteration of the while loop, it selects the vertex u in V - S with the minimum tentative shortest path estimate d[u] and locks it into the finalized set S.\nBecause all edge weights are non-negative, any other path from s to u through unvisited vertices must pass through some boundary vertex with distance >= d[u], meaning no shorter path to u can possibly be discovered later.",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_greedy_choice_negative_weights_chunk_0",
+    "source_id": "mit_ocw_greedy_choice_negative_weights",
+    "source_name": "Correctness Proof of Greedy Choice & Why Dijkstra Fails on Negative Weights",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "MIT 6.006 Fall 2011: Correctness Proof & Why Dijkstra Fails on Negative Weights",
+    "content": "# MIT 6.006 Fall 2011: Correctness Proof & Why Dijkstra Fails on Negative Weights\n**Course**: MIT 6.006 / 6.046J (Prof. Erik Demaine & Prof. Srinivas Devadas)  \n**Readings**: CLRS Section 24.3 (Theorem 24.6)  \n**Source**: MIT OpenCourseWare Lecture 16",
+    "chunk_type": "proof"
+  },
+  {
+    "chunk_id": "mit_ocw_greedy_choice_negative_weights_chunk_1",
+    "source_id": "mit_ocw_greedy_choice_negative_weights",
+    "source_name": "Correctness Proof of Greedy Choice & Why Dijkstra Fails on Negative Weights",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "1. Theorem: Correctness of Dijkstra's Algorithm",
+    "content": "## 1. Theorem: Correctness of Dijkstra's Algorithm\n**Theorem (CLRS 24.6 / MIT 6.006)**: Dijkstra's algorithm, run on a weighted, directed graph G = (V, E) with non-negative weight function w: E -> [0, infinity) and source s, terminates with d[u] = delta(s, u) for all vertices u in V.",
+    "chunk_type": "proof"
+  },
+  {
+    "chunk_id": "mit_ocw_greedy_choice_negative_weights_chunk_2",
+    "source_id": "mit_ocw_greedy_choice_negative_weights",
+    "source_name": "Correctness Proof of Greedy Choice & Why Dijkstra Fails on Negative Weights",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "Proof of the Greedy Invariant by Contradiction:",
+    "content": "### Proof of the Greedy Invariant by Contradiction:\nWe prove that whenever a vertex u is added to the finalized set S (i.e., extracted from Q via EXTRACT-MIN), d[u] = delta(s, u).\n1. Assume for the sake of contradiction that u is the first vertex added to S for which d[u] != delta(s, u).\n2. By the Safety Lemma, d[u] >= delta(s, u), so it must be that d[u] > delta(s, u).\n3. Consider an actual shortest path p from s to u. Let y be the first vertex on path p that belongs to V - S (the unvisited set), and let x be y's immediate predecessor on p (so x is in S).\n4. Since x was added to S before u, and x is not the first incorrect vertex, d[x] = delta(s, x).\n5. When x was added to S, edge (x, y) was relaxed, so by the Convergence Property:\n   d[y] = delta(s, y)\n6. Because edge weights are non-negative (w(e) >= 0), subpath weights are non-decreasing along path p:\n   delta(s, y) <= delta(s, u)\n7. Since d[u] > delta(s, u), we have:\n   d[y] = delta(s, y) <= delta(s, u) < d[u]\n   which implies d[y] < d[u].\n8. Both u and y were in Q when u was chosen by EXTRACT-MIN. But EXTRACT-MIN chooses the vertex with the minimal d value. Since d[y] < d[u], the algorithm would have chosen y instead of u.\n9. This contradiction proves d[u] = delta(s, u) for all vertices u in S.",
+    "chunk_type": "proof"
+  },
+  {
+    "chunk_id": "mit_ocw_greedy_choice_negative_weights_chunk_3",
+    "source_id": "mit_ocw_greedy_choice_negative_weights",
+    "source_name": "Correctness Proof of Greedy Choice & Why Dijkstra Fails on Negative Weights",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "2. Why Dijkstra Fails on Negative Edge Weights",
+    "content": "## 2. Why Dijkstra Fails on Negative Edge Weights\nProf. Erik Demaine emphasizes: **The entire proof of correctness collapses if any edge weight is negative.**",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_greedy_choice_negative_weights_chunk_4",
+    "source_id": "mit_ocw_greedy_choice_negative_weights",
+    "source_name": "Correctness Proof of Greedy Choice & Why Dijkstra Fails on Negative Weights",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "Where the proof breaks:",
+    "content": "### Where the proof breaks:\nIn Step 6 of the proof above, we assumed delta(s, y) <= delta(s, u) because the path from y to u cannot have negative weight. If negative edge weights are permitted, a path from y to u could have negative total weight, making delta(s, u) < delta(s, y).\nIn that scenario:\n- A vertex u could be finalized into S with a tentative distance d[u] that is NOT the true shortest path.\n- Later, an alternative path through an unvisited node y with negative edge weights could reach u with a lower cost.\n- Because Dijkstra NEVER revisits or re-relaxes vertices already in set S, the algorithm terminates with an incorrect distance!",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_greedy_choice_negative_weights_chunk_5",
+    "source_id": "mit_ocw_greedy_choice_negative_weights",
+    "source_name": "Correctness Proof of Greedy Choice & Why Dijkstra Fails on Negative Weights",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "The 3-Node Counterexample (Prof. Demaine):",
+    "content": "### The 3-Node Counterexample (Prof. Demaine):\n- Directed graph with vertices {S, A, B}:\n  - Edge (S, A) with weight 3\n  - Edge (S, B) with weight 5\n  - Edge (B, A) with weight -3\n- Step 1: Initialize d[S] = 0, d[A] = inf, d[B] = inf. S_set = empty_set.\n- Step 2: Relax from S: d[A] = 3, d[B] = 5.\n- Step 3: EXTRACT-MIN picks A (since d[A]=3 < d[B]=5). Vertex A is permanently placed into S!\n- Step 4: EXTRACT-MIN picks B (d[B]=5). Relax edge (B, A):\n  Candidate path to A through B: d[B] + w(B, A) = 5 + (-3) = 2.\n  Notice 2 < 3! The true shortest path from S to A is 2 (path S -> B -> A).\n- But Dijkstra has already finalized A and will never update d[A]! Dijkstra incorrectly outputs d[A] = 3 instead of 2.",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_greedy_choice_negative_weights_chunk_6",
+    "source_id": "mit_ocw_greedy_choice_negative_weights",
+    "source_name": "Correctness Proof of Greedy Choice & Why Dijkstra Fails on Negative Weights",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "What algorithm should be used instead?",
+    "content": "### What algorithm should be used instead?\nWhen negative edge weights are present, Prof. Demaine instructs students to use the **Bellman-Ford Algorithm** ((V \\cdot E)$), which relaxes all edges |V| - 1 times and can detect negative-weight cycles.",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_priority_queues_complexity_chunk_0",
+    "source_id": "mit_ocw_priority_queues_complexity",
+    "source_name": "Priority Queue Asymptotic Complexity: Array vs Min-Heap vs Fibonacci Heap",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "MIT 6.006 Fall 2011: Priority Queue Data Structures & Complexity Analysis",
+    "content": "# MIT 6.006 Fall 2011: Priority Queue Data Structures & Complexity Analysis\n**Course**: MIT 6.006 / 6.046J (Prof. Erik Demaine & Prof. Srinivas Devadas)  \n**Readings**: CLRS Section 24.3 & Section 6.5  \n**Source**: MIT OpenCourseWare Lecture 16",
+    "chunk_type": "complexity"
+  },
+  {
+    "chunk_id": "mit_ocw_priority_queues_complexity_chunk_1",
+    "source_id": "mit_ocw_priority_queues_complexity",
+    "source_name": "Priority Queue Asymptotic Complexity: Array vs Min-Heap vs Fibonacci Heap",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "1. Operation Count Breakdown",
+    "content": "## 1. Operation Count Breakdown\nIn MIT 6.006 Lecture 16, Prof. Erik Demaine analyzes the exact number of priority queue operations performed by Dijkstra's algorithm on a graph G = (V, E):\n\n1. **INSERT operations**: Exactly |V| inserts to populate the priority queue Q during initialization.\n2. **EXTRACT-MIN operations**: Exactly |V| extract-min calls, because each vertex is extracted from Q and finalized into set S exactly once.\n3. **DECREASE-KEY operations**: At most |E| decrease-key calls, because each directed edge (u, v) in the adjacency list of u is examined and relaxed at most once.\n\nTherefore, the total running time of Dijkstra's algorithm is:\nT(V, E) = Theta(V) * T_Insert + Theta(V) * T_ExtractMin + Theta(E) * T_DecreaseKey",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_priority_queues_complexity_chunk_2",
+    "source_id": "mit_ocw_priority_queues_complexity",
+    "source_name": "Priority Queue Asymptotic Complexity: Array vs Min-Heap vs Fibonacci Heap",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "2. Comparison Across Priority Queue Implementations",
+    "content": "## 2. Comparison Across Priority Queue Implementations",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_priority_queues_complexity_chunk_3",
+    "source_id": "mit_ocw_priority_queues_complexity",
+    "source_name": "Priority Queue Asymptotic Complexity: Array vs Min-Heap vs Fibonacci Heap",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "Implementation 1: Unsorted Array / Simple List",
+    "content": "### Implementation 1: Unsorted Array / Simple List\n- **INSERT**: Theta(1)\n- **EXTRACT-MIN**: Theta(V) (linear scan over all remaining vertices in Q to find the minimum distance)\n- **DECREASE-KEY**: Theta(1) (direct array indexing d[v] = new_weight)\n- **Total Asymptotic Runtime**:\n  T(V, E) = Theta(V * 1 + V * V + E * 1) = Theta(V^2 + E) = Theta(V^2)\n- **When to use**: Highly dense graphs where |E| is proportional to |V|^2 (E ~ V^2). In this dense limit, an array is simple, has zero pointer overhead, and is asymptotically optimal.",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_priority_queues_complexity_chunk_4",
+    "source_id": "mit_ocw_priority_queues_complexity",
+    "source_name": "Priority Queue Asymptotic Complexity: Array vs Min-Heap vs Fibonacci Heap",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "Implementation 2: Binary Min-Heap (Standard CLRS / MIT 6.006)",
+    "content": "### Implementation 2: Binary Min-Heap (Standard CLRS / MIT 6.006)\n- **BUILD-HEAP / INSERT**: Theta(V) total using Floyd's build-heap, or Theta(V log V) via repeated insertions.\n- **EXTRACT-MIN**: Theta(log V) (remove root element and bubble down / heapify).\n- **DECREASE-KEY**: Theta(log V) (update key and bubble up towards root).\n- **Total Asymptotic Runtime**:\n  T(V, E) = Theta(V log V + E log V) = Theta((V + E) log V)\n- **When to use**: Sparse graphs, road maps, and computer network topologies where |E| << |V|^2 (e.g., planar road networks where E = O(V)). In sparse graphs, Theta((V + E) log V) is vastly faster than Theta(V^2).",
+    "chunk_type": "complexity"
+  },
+  {
+    "chunk_id": "mit_ocw_priority_queues_complexity_chunk_5",
+    "source_id": "mit_ocw_priority_queues_complexity",
+    "source_name": "Priority Queue Asymptotic Complexity: Array vs Min-Heap vs Fibonacci Heap",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "Implementation 3: Fibonacci Heap (Advanced MIT 6.046J)",
+    "content": "### Implementation 3: Fibonacci Heap (Advanced MIT 6.046J)\n- **EXTRACT-MIN**: Theta(log V) amortized cost.\n- **DECREASE-KEY**: Theta(1) amortized cost.\n- **Total Asymptotic Runtime**:\n  T(V, E) = Theta(V log V + E)\n- **Significance**: Prof. Erik Demaine notes that Fibonacci Heaps achieve theoretical optimality for Dijkstra's algorithm when E is intermediate between V and V^2. While theoretically superior, constant factors in practice make Binary Min-Heaps preferred for most practical software implementations.",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_relaxation_proofs_chunk_0",
+    "source_id": "mit_ocw_relaxation_proofs",
+    "source_name": "Edge Relaxation Safety Lemma, Induction Proof & Triangle Inequality",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "MIT 6.006 Fall 2011: Edge Relaxation & Mathematical Invariant Proofs",
+    "content": "# MIT 6.006 Fall 2011: Edge Relaxation & Mathematical Invariant Proofs\n**Course**: MIT 6.006 / 6.046J (Prof. Erik Demaine & Prof. Srinivas Devadas)  \n**Readings**: CLRS Chapter 24 (Sections 24.2 - 24.3)  \n**Source**: MIT OpenCourseWare Lecture 16",
+    "chunk_type": "proof"
+  },
+  {
+    "chunk_id": "mit_ocw_relaxation_proofs_chunk_1",
+    "source_id": "mit_ocw_relaxation_proofs",
+    "source_name": "Edge Relaxation Safety Lemma, Induction Proof & Triangle Inequality",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "1. The Edge Relaxation Subroutine",
+    "content": "## 1. The Edge Relaxation Subroutine\nIn MIT 6.006, Prof. Srinivas Devadas and Prof. Erik Demaine explain that the fundamental atomic operation in shortest path algorithms is **Edge Relaxation**:\n\n`\text\nRELAX(u, v, w):\n    if d[v] > d[u] + w(u, v):\n        d[v] = d[u] + w(u, v)\n        pi[v] = u\n`",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_relaxation_proofs_chunk_2",
+    "source_id": "mit_ocw_relaxation_proofs",
+    "source_name": "Edge Relaxation Safety Lemma, Induction Proof & Triangle Inequality",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "Intuition:",
+    "content": "### Intuition:\nRelaxing an edge (u, v) tests whether going through vertex u to reach vertex v improves the current shortest path estimate d[v]. If going through u yields a strictly shorter route (d[u] + w(u, v) < d[v]), we update d[v] and record u as the predecessor pi[v].",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_relaxation_proofs_chunk_3",
+    "source_id": "mit_ocw_relaxation_proofs",
+    "source_name": "Edge Relaxation Safety Lemma, Induction Proof & Triangle Inequality",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "2. The Safety Lemma: Upper-Bound Invariant",
+    "content": "## 2. The Safety Lemma: Upper-Bound Invariant\n**Lemma**: The relaxation algorithm maintains the invariant that d[v] >= delta(s, v) for all v in V at all times during execution. Moreover, once d[v] reaches delta(s, v), it never changes.",
+    "chunk_type": "text"
+  },
+  {
+    "chunk_id": "mit_ocw_relaxation_proofs_chunk_4",
+    "source_id": "mit_ocw_relaxation_proofs",
+    "source_name": "Edge Relaxation Safety Lemma, Induction Proof & Triangle Inequality",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "Mathematical Proof by Induction (Prof. Erik Demaine):",
+    "content": "### Mathematical Proof by Induction (Prof. Erik Demaine):\n1. **Base Case**: Immediately after initialization, d[s] = 0 = delta(s, s) (assuming no negative cycles), and d[v] = infinity >= delta(s, v) for all v != s. The invariant holds.\n2. **Inductive Step**: Consider the relaxation of an arbitrary edge (u, v) with weight w(u, v). By the inductive hypothesis, d[u] >= delta(s, u).\n   By the **Triangle Inequality**, the shortest path from s to v cannot be longer than the shortest path from s to u plus the direct edge from u to v:\n   delta(s, v) <= delta(s, u) + w(u, v)\n   Since d[u] >= delta(s, u), we have:\n   delta(s, v) <= delta(s, u) + w(u, v) <= d[u] + w(u, v)\n   Therefore, setting d[v] = d[u] + w(u, v) preserves d[v] >= delta(s, v).\n   Relaxation can never reduce d[v] below the true shortest path distance delta(s, v).",
+    "chunk_type": "proof"
+  },
+  {
+    "chunk_id": "mit_ocw_relaxation_proofs_chunk_5",
+    "source_id": "mit_ocw_relaxation_proofs",
+    "source_name": "Edge Relaxation Safety Lemma, Induction Proof & Triangle Inequality",
+    "source_url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "title": "3. Key Invariant Properties (MIT 6.006 / CLRS Chapter 24)",
+    "content": "## 3. Key Invariant Properties (MIT 6.006 / CLRS Chapter 24)\n- **Triangle Inequality**: For any edge (u, v) in E, delta(s, v) <= delta(s, u) + w(u, v).\n- **Upper-Bound Property**: d[v] >= delta(s, v) for all v in V, and once d[v] achieves delta(s, v), it never increases or decreases.\n- **Convergence Property**: If s -> ... -> u -> v is a shortest path, and d[u] = delta(s, u) at any time prior to relaxing (u, v), then d[v] = delta(s, v) at all times after relaxing (u, v).\n- **Predecessor-Subgraph Property**: Once d[v] = delta(s, v) for all v in V, the predecessor subgraph G_pi is a Shortest Path Tree (SPT) rooted at source s.",
+    "chunk_type": "text"
   },
   {
     "chunk_id": "mit_6006_lec16_pdf_p1",

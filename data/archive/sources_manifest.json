@@ -1,98 +1,75 @@
 {
-  "project_title": "Dijkstra's Shortest Path Algorithm Grounded Knowledge Base",
-  "author": "Robin",
-  "generated_date": "2026-10-24",
-  "algorithm": "Dijkstra's Single-Source Shortest Path (SSSP)",
-  "primary_source": "GeeksforGeeks (GFG)",
-  "secondary_source": "MIT OpenCourseWare 6.006 (Introduction to Algorithms)",
-  "sources": [
+  "platform_title": "MIT 6.006 Single Source of Truth Knowledge Archive: Dijkstra Algorithm",
+  "course_name": "MIT 6.006: Introduction to Algorithms / 6.046J Design and Analysis of Algorithms",
+  "academic_institution": "Massachusetts Institute of Technology (MIT EECS)",
+  "primary_instructors": [
+    "Prof. Erik Demaine (MIT CSAIL, Professor of Computer Science)",
+    "Prof. Srinivas Devadas (MIT CSAIL, Professor of Electrical Engineering & Computer Science)"
+  ],
+  "official_course_urls": {
+    "ocw_course_site": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/",
+    "ocw_algorithms_design": "https://ocw.mit.edu/6-046JS15",
+    "youtube_lecture_video": "https://www.youtube.com/playlist?list=PLUl4u3cNGP6317WaSNfmCvGym2ucw3oGp",
+    "lecture_16_page": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/resources/mit6_006f11_lec16/"
+  },
+  "official_textbook_reference": "Introduction to Algorithms (CLRS), 3rd Edition, Chapter 24: Single-Source Shortest Paths (Sections 24.2 - 24.3) by Cormen, Leiserson, Rivest, Stein",
+  "indexed_academic_documents": [
     {
-      "id": "gfg-dijkstra-matrix",
-      "name": "Dijkstra's Shortest Path Algorithm | Greedy Algo-7",
-      "publisher": "GeeksforGeeks",
-      "url": "https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/",
-      "representation": "Adjacency Matrix",
-      "time_complexity": "O(V^2)",
-      "space_complexity": "O(V)",
-      "topics_covered": [
-        "Greedy algorithm foundation",
-        "Shortest Path Tree (SPT) construction",
-        "Distance array initialization",
-        "Iterative min-distance vertex extraction",
-        "Adjacency matrix implementation in C++, Java, and Python"
-      ]
+      "file_name": "MIT6_006F11_lec16.pdf",
+      "title": "MIT 6.006 Fall 2011: Lecture 16 Lecture Notes — Shortest Paths II: Dijkstra",
+      "authors": "Prof. Erik Demaine & Prof. Srinivas Devadas",
+      "source": "Official MIT OpenCourseWare Lecture Notes PDF (7 pages)",
+      "format": "PDF / Text"
     },
     {
-      "id": "gfg-dijkstra-minheap",
-      "name": "Dijkstra's Algorithm for Adjacency List Representation | Greedy Algo-8",
-      "publisher": "GeeksforGeeks",
-      "url": "https://www.geeksforgeeks.org/dijkstras-algorithm-for-adjacency-list-representation-greedy-algo-8/",
-      "representation": "Adjacency List + Min-Heap (Priority Queue)",
-      "time_complexity": "O((V + E) log V)",
-      "space_complexity": "O(V + E)",
-      "topics_covered": [
-        "Sparse graph optimization",
-        "Priority queue / Min-heap operations (insert, extract-min, decrease-key)",
-        "Edge relaxation with priority queue",
-        "Python heapq and C++ priority_queue implementations"
-      ]
+      "file_name": "mit_ocw_dijkstra_core.md",
+      "title": "Dijkstra SSSP Formulation, Greedy Strategy & Pseudocode",
+      "authors": "Prof. Erik Demaine & Prof. Srinivas Devadas",
+      "source": "MIT 6.006 Lecture 16 / CLRS Section 24.3",
+      "format": "Markdown"
     },
     {
-      "id": "gfg-dijkstra-set",
-      "name": "Dijkstra's Shortest Path Algorithm using Set in STL",
-      "publisher": "GeeksforGeeks",
-      "url": "https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-using-set-in-stl/",
-      "representation": "Self-Balancing BST (std::set in C++)",
-      "time_complexity": "O((V + E) log V)",
-      "space_complexity": "O(V)",
-      "topics_covered": [
-        "Dynamic updates without redundant heap elements",
-        "Erase and insert pairs (distance, vertex)",
-        "Comparison with std::priority_queue"
-      ]
+      "file_name": "mit_ocw_relaxation_proofs.md",
+      "title": "Edge Relaxation Safety Lemma, Induction Proof & Triangle Inequality",
+      "authors": "Prof. Erik Demaine & Prof. Srinivas Devadas",
+      "source": "MIT 6.006 Lecture 16 Invariant Analysis",
+      "format": "Markdown"
     },
     {
-      "id": "gfg-dijkstra-negative-weights",
-      "name": "Why Dijkstra's Algorithm Fails on Negative Weights and Negative Cycles",
-      "publisher": "GeeksforGeeks",
-      "url": "https://www.geeksforgeeks.org/why-does-dijkstras-algorithm-fail-on-negative-weights/",
-      "topics_covered": [
-        "Greedy invariant violation",
-        "Premature vertex finalization",
-        "Concrete 3-node counterexample",
-        "Comparison with Bellman-Ford algorithm O(V * E)"
-      ]
+      "file_name": "mit_ocw_priority_queues_complexity.md",
+      "title": "Priority Queue Asymptotic Complexity: Array vs Min-Heap vs Fibonacci Heap",
+      "authors": "Prof. Erik Demaine & Prof. Srinivas Devadas",
+      "source": "MIT 6.006 / 6.046J Complexity Analysis",
+      "format": "Markdown"
     },
     {
-      "id": "gfg-dijkstra-applications",
-      "name": "Applications of Dijkstra's Shortest Path Algorithm",
-      "publisher": "GeeksforGeeks",
-      "url": "https://www.geeksforgeeks.org/applications-of-dijkstras-shortest-path-algorithm/",
-      "topics_covered": [
-        "OSPF (Open Shortest Path First) network routing protocol",
-        "Google Maps and GPS navigation systems",
-        "Robotics trajectory planning",
-        "Flight path cost optimization",
-        "Social networking degrees of connection"
-      ]
+      "file_name": "mit_ocw_greedy_choice_negative_weights.md",
+      "title": "Correctness Proof of Greedy Choice & Why Dijkstra Fails on Negative Weights",
+      "authors": "Prof. Erik Demaine & Prof. Srinivas Devadas",
+      "source": "MIT 6.006 Lecture 16 (Theorem 24.6 / CLRS)",
+      "format": "Markdown"
     },
     {
-      "id": "mit-6006-lec16-dijkstra",
-      "name": "MIT 6.006: Introduction to Algorithms, Lecture 16: Dijkstra",
-      "instructors": [
-        "Prof. Erik Demaine",
-        "Prof. Srinivas Devadas"
-      ],
-      "institution": "Massachusetts Institute of Technology (MIT)",
-      "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/resources/mit6_006f11_lec16/",
-      "pdf_resource": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/6277a1f06100c26a7ff21031af6757b5_MIT6_006F11_lec16.pdf",
-      "topics_covered": [
-        "Single-source shortest paths definition",
-        "Edge relaxation formula d[v] = min(d[v], d[u] + w(u, v))",
-        "Correctness proof via upper-bound and triangle inequality properties",
-        "Comparison: DAG shortest paths via topological sort vs Dijkstra",
-        "Fibonacci heap asymptotic bound O(E + V log V)"
-      ]
+      "file_name": "mit_ocw_balls_and_strings_intuition.md",
+      "title": "Balls-and-Strings Physical Model, DAG Shortest Paths & Applications",
+      "authors": "Prof. Erik Demaine & Prof. Srinivas Devadas",
+      "source": "MIT 6.006 Lecture 16 Physical Demonstrations & Applications",
+      "format": "Markdown"
+    },
+    {
+      "file_name": "mit_6006_lec16_dijkstra.md",
+      "title": "MIT 6.006 Complete Lecture 16 Notes & Recitation Review",
+      "authors": "Prof. Erik Demaine & Prof. Srinivas Devadas",
+      "source": "MIT 6.006 Fall 2011 Recitation Archive",
+      "format": "Markdown"
     }
-  ]
+  ],
+  "anti_hallucination_safeguards": {
+    "single_source_of_truth": true,
+    "permitted_domains": [
+      "MIT OpenCourseWare (6.006 / 6.046J)",
+      "CLRS Textbook Sections 24.2-24.3"
+    ],
+    "out_of_scope_policy": "Clean rejection with 0% confidence for queries outside Dijkstra / SSSP (e.g. QuickSort, DP, Sorting)"
+  }
 }

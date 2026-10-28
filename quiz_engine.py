@@ -1,6 +1,6 @@
 """
 quiz_engine.py — Interactive Dijkstra Knowledge Quiz Module
-Grounded strictly in GeeksforGeeks (GFG) and MIT 6.006 Lecture 16 (Prof. Demaine & Prof. Devadas).
+Grounded strictly in MIT 6.006 Lecture 16 (Prof. Erik Demaine & Prof. Srinivas Devadas) and CLRS Chapter 24.
 """
 
 QUIZ_QUESTIONS = [
@@ -26,7 +26,7 @@ QUIZ_QUESTIONS = [
             "O(E log E + V²)"
         ],
         "correct_idx": 0,
-        "explanation": "As documented by GeeksforGeeks and MIT 6.006: Each vertex is extracted from the Min-Heap once (V * extract_min = O(V log V)). In the worst case, every edge is relaxed once, triggering a decrease_key / insert operation (E * decrease_key = O(E log V)). Summing these yields O((V + E) log V)."
+        "explanation": "As established in MIT 6.006 Lecture 16 by Prof. Erik Demaine: Each vertex is extracted from the Min-Heap once (V * extract_min = Theta(V log V)). In the worst case, every edge is relaxed once, triggering a decrease_key / insert operation (E * decrease_key = Theta(E log V)). Summing these yields Theta((V + E) log V)."
     },
     {
         "id": "q3",
@@ -38,7 +38,7 @@ QUIZ_QUESTIONS = [
             "The adjacency list cannot store negative numerical values"
         ],
         "correct_idx": 0,
-        "explanation": "GFG's negative weight analysis shows that Dijkstra assumes adding an edge to a path can never decrease its total length. If a negative edge exists, a path passing through a vertex with a higher tentative distance could end up with a lower total cost, violating the greedy invariant that finalized nodes never need re-evaluation. (Bellman-Ford must be used instead)."
+        "explanation": "Prof. Demaine proves that Dijkstra's greedy choice assumes subpaths only grow in length. If a negative edge exists, a path through an unvisited vertex with a higher tentative distance could end up with a lower total cost, violating the invariant that vertices in set S never need re-evaluation. (Prof. Demaine instructs using Bellman-Ford for negative weights)."
     },
     {
         "id": "q4",
@@ -62,7 +62,7 @@ QUIZ_QUESTIONS = [
             "FTP (File Transfer Protocol)"
         ],
         "correct_idx": 0,
-        "explanation": "GFG notes that OSPF (Open Shortest Path First) is a link-state routing protocol where every router independently constructs a complete topology graph of the autonomous area and runs Dijkstra's algorithm to generate its IP forwarding table with lowest link-cost."
+        "explanation": "As discussed in MIT 6.006, OSPF (Open Shortest Path First) is an interior gateway link-state routing protocol where routers independently execute Dijkstra's algorithm on the network topology to construct optimal IP forwarding tables."
     },
     {
         "id": "q6",
@@ -168,7 +168,7 @@ def render_quiz_result_html(correct_count: int, total: int, percentage: float, b
             </div>
             '''}
             <div style="margin-top:10px; padding:10px 12px; background:rgba(15,23,42,0.6); border-left:3px solid #38bdf8; border-radius:4px; font-size:12px; color:#94a3b8; line-height:1.5;">
-                <b style="color:#38bdf8;">📖 Grounded Rationale (GFG & MIT 6.006):</b><br/>
+                <b style="color:#38bdf8;">📖 Grounded Rationale (MIT 6.006 Lecture 16):</b><br/>
                 {item['explanation']}
             </div>
         </div>

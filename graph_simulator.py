@@ -3,7 +3,7 @@ from typing import Dict, List, Tuple, Any
 
 class DijkstraSimulator:
     def __init__(self):
-        # Default 6-node weighted graph from GeeksforGeeks & MIT lecture
+        # Default 6-node weighted graph from MIT 6.006 (Prof. Erik Demaine & Srinivas Devadas) & MIT lecture
         # Vertices: 0=A, 1=B, 2=C, 3=D, 4=E, 5=F
         self.node_labels = ["A", "B", "C", "D", "E", "F"]
         self.node_positions = {

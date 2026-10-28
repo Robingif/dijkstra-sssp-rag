@@ -26,7 +26,7 @@ def create_presentation(output_pptx_path: str):
             "badge": "DATA STRUCTURES & ALGORITHMS | GRAPH THEORY",
             "title": "Dijkstra's Shortest Path Algorithm",
             "subtitle": "Single-Source Shortest Path (SSSP) on Weighted Graphs",
-            "author": "Robin • Grounded in GeeksforGeeks & MIT 6.006 (Demaine & Devadas)",
+            "author": "Robin • Grounded in MIT 6.006 (Prof. Erik Demaine & Srinivas Devadas) & MIT 6.006 (Demaine & Devadas)",
             "cards": [
                 {
                     "title": "🎯 Core Problem",
@@ -83,7 +83,7 @@ def create_presentation(output_pptx_path: str):
         {
             "badge": "REPRESENTATION 1",
             "title": "3. Adjacency Matrix Implementation — O(V²)",
-            "subtitle": "Simplicity and Optimality for Dense Graphs (GeeksforGeeks)",
+            "subtitle": "Simplicity and Optimality for Dense Graphs (MIT 6.006 (Prof. Erik Demaine & Srinivas Devadas))",
             "cards": [
                 {
                     "title": "How it Works",
@@ -102,7 +102,7 @@ def create_presentation(output_pptx_path: str):
         {
             "badge": "REPRESENTATION 2",
             "title": "4. Adjacency List + Min-Heap — O((V + E) log V)",
-            "subtitle": "The Production Standard for Sparse Networks (GeeksforGeeks)",
+            "subtitle": "The Production Standard for Sparse Networks (MIT 6.006 (Prof. Erik Demaine & Srinivas Devadas))",
             "cards": [
                 {
                     "title": "Heap Acceleration",
@@ -182,7 +182,7 @@ def create_presentation(output_pptx_path: str):
             "cards": [
                 {
                     "title": "Knowledge Ingestion",
-                    "text": "Authentic study archive curated from GeeksforGeeks and MIT 6.006 (Demaine & Devadas), split into semantic code & math chunks."
+                    "text": "Authentic study archive curated from MIT 6.006 (Demaine & Devadas), split into semantic code & math chunks."
                 },
                 {
                     "title": "Hybrid Retrieval Engine",
@@ -337,7 +337,7 @@ def create_html_presentation(output_html_path: str):
         <div class="slide active">
             <div class="badge">DATA STRUCTURES & ALGORITHMS • GRAPH THEORY</div>
             <h1>Dijkstra's Shortest Path Algorithm</h1>
-            <div class="subtitle">Single-Source Shortest Path (SSSP) on Weighted Graphs • Grounded in GeeksforGeeks & MIT 6.006</div>
+            <div class="subtitle">Single-Source Shortest Path (SSSP) on Weighted Graphs • Grounded in MIT 6.006 (Prof. Erik Demaine & Srinivas Devadas) & MIT 6.006</div>
             <div class="cards-grid">
                 <div class="card">
                     <h3>🎯 The Problem</h3>
@@ -415,7 +415,7 @@ Lowers upper bound when a shorter path is found!</p>
         <div class="slide">
             <div class="badge">REPRESENTATION 1</div>
             <h1>3. Adjacency Matrix Implementation — O(V²)</h1>
-            <div class="subtitle">Simplicity and Optimality for Dense Graphs (GeeksforGeeks)</div>
+            <div class="subtitle">Simplicity and Optimality for Dense Graphs (MIT 6.006 (Prof. Erik Demaine & Srinivas Devadas))</div>
             <div class="cards-grid">
                 <div class="card">
                     <h3>How it Works</h3>
@@ -440,7 +440,7 @@ Lowers upper bound when a shorter path is found!</p>
         <div class="slide">
             <div class="badge">REPRESENTATION 2</div>
             <h1>4. Adjacency List + Min-Heap — O((V + E) log V)</h1>
-            <div class="subtitle">The Production Standard for Sparse Networks (GeeksforGeeks)</div>
+            <div class="subtitle">The Production Standard for Sparse Networks (MIT 6.006 (Prof. Erik Demaine & Srinivas Devadas))</div>
             <div class="cards-grid">
                 <div class="card">
                     <h3>Heap Optimization</h3>

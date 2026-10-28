@@ -31,13 +31,13 @@ MANIFEST_PATH = os.path.join(DATA_DIR, "archive", "sources_manifest.json")
 
 # Document registry
 DOC_FILES = {
-    "GeeksforGeeks: Adjacency Matrix O(V²) Guide": "gfg_dijkstra_matrix.md",
-    "GeeksforGeeks: Adjacency List + Min-Heap O((V+E)log V) Guide": "gfg_dijkstra_minheap.md",
-    "GeeksforGeeks: C++ std::set / Balanced BST Guide": "gfg_dijkstra_set.md",
-    "GeeksforGeeks: Negative Weights Pitfall & Counterexample": "gfg_dijkstra_negative_weights.md",
-    "GeeksforGeeks: Real-World Applications (OSPF, GPS, Robotics)": "gfg_dijkstra_applications.md",
-    "MIT 6.006 Lecture 16: Dijkstra Theory & Proofs (Demaine & Devadas)": "mit_6006_lec16_dijkstra.md",
-    "Full Sources Registry Manifest (JSON)": "sources_manifest.json"
+    "MIT 6.006: SSSP Formulation, Greedy Strategy & Pseudocode": "mit_ocw_dijkstra_core.md",
+    "MIT 6.006: Edge Relaxation Safety Lemma & Triangle Inequality": "mit_ocw_relaxation_proofs.md",
+    "MIT 6.006: Priority Queue Complexity (Array vs Min-Heap vs Fibonacci)": "mit_ocw_priority_queues_complexity.md",
+    "MIT 6.006: Correctness Proof & Why Greedy Fails on Negative Weights": "mit_ocw_greedy_choice_negative_weights.md",
+    "MIT 6.006: Balls-and-Strings Physical Model & DAG Shortest Paths": "mit_ocw_balls_and_strings_intuition.md",
+    "MIT 6.006: Complete Lecture 16 Notes & Recitation Review": "mit_6006_lec16_dijkstra.md",
+    "MIT Official Sources Registry Manifest (JSON)": "sources_manifest.json"
 }
 
 def get_doc_content(doc_title: str) -> str:
@@ -181,7 +181,7 @@ with gr.Blocks(title="Dijkstra's Shortest Path Algorithm — Grounded SOT Platfo
         <div class="header-badge">SINGLE SOURCE OF TRUTH (SOT) GROUNDED SYSTEM</div>
         <div class="header-title">🛣️ Dijkstra's Shortest Path Algorithm: Grounded RAG & Learning Suite</div>
         <div class="header-sub">
-            Grounded strictly in <b>GeeksforGeeks (GFG)</b> and <b>MIT 6.006 Lecture 16 (Prof. Erik Demaine & Prof. Srinivas Devadas)</b>.
+            Grounded strictly in <b>MIT 6.006 Lecture 16 (Prof. Erik Demaine & Prof. Srinivas Devadas)</b> and <b>CLRS Chapter 24</b>.
             Equipped with multi-modal AI retrieval, dual-language video/voice-over (English & Hindi), interactive infographics, step-by-step simulation, and assessment quiz.
         </div>
         <div style="display:flex; flex-wrap:wrap; gap:8px;">
@@ -228,7 +228,7 @@ with gr.Blocks(title="Dijkstra's Shortest Path Algorithm — Grounded SOT Platfo
                     <div style="background:#1e293b; border:1px solid #334155; border-radius:12px; padding:18px;">
                         <h4 style="color:#38bdf8; margin:0 0 10px 0; font-size:15px;">🛡️ Grounding Safeguards</h4>
                         <ul style="font-size:12px; line-height:1.6; color:#cbd5e1; padding-left:18px; margin:0;">
-                            <li><b>Single Source of Truth</b>: Answers generated <i>exclusively</i> from GFG articles and MIT 6.006 Lecture 16.</li>
+                            <li><b>Single Source of Truth</b>: Answers generated <i>exclusively</i> from MIT 6.006 Lecture 16 notes and CLRS Chapter 24.</li>
                             <li><b>No Hallucinations</b>: Out-of-scope topics (e.g., QuickSort, Dynamic Programming) are cleanly rejected with 0% false confidence.</li>
                             <li><b>Exact Quotes & Citations</b>: Every response includes verbatim quotes and mathematical references.</li>
                             <li><b>Clean Typography</b>: Zero raw LaTeX artifacts; rendered using clean mathematical symbols (O(V²), O((V + E) log V), δ(s, v)).</li>
@@ -239,8 +239,8 @@ with gr.Blocks(title="Dijkstra's Shortest Path Algorithm — Grounded SOT Platfo
                         <h4 style="color:#10b981; margin:0 0 10px 0; font-size:15px;">📊 Indexed Knowledge Base</h4>
                         <div style="font-size:12px; color:#94a3b8; line-height:1.6;">
                             • <b>MIT 6.006 Lecture 16</b>: Prof. Erik Demaine & Prof. Srinivas Devadas<br/>
-                            • <b>GeeksforGeeks Guides</b>: Adjacency Matrix, Min-Heap, std::set, Negative Weights, OSPF/GPS Applications<br/>
-                            • <b>Total Passages</b>: 55 Semantic Chunks<br/>
+                            • <b>MIT OCW Course Modules</b>: SSSP Formulation, Edge Relaxation Invariants, Heap Complexities, Greedy Correctness Proofs<br/>
+                            • <b>Total Passages</b>: 49 Semantic Chunks<br/>
                             • <b>Retrieval Engine</b>: Hybrid BM25 + TF-IDF Vector Space
                         </div>
                     </div>
@@ -345,7 +345,7 @@ with gr.Blocks(title="Dijkstra's Shortest Path Algorithm — Grounded SOT Platfo
         # TAB 5: Interactive Dijkstra Knowledge Quiz
         with gr.Tab("📝 Interactive Dijkstra Knowledge Quiz", id="tab_quiz"):
             gr.Markdown("### 🧠 Dijkstra's Algorithm: Mastery Assessment & Knowledge Check")
-            gr.Markdown("Test your conceptual understanding of shortest paths, relaxation proofs, time complexities, and edge invariants grounded in GFG & MIT 6.006.")
+            gr.Markdown("Test your conceptual understanding of shortest paths, relaxation proofs, time complexities, and edge invariants grounded in MIT 6.006 (Prof. Demaine & Prof. Devadas).")
 
             quiz_radio_components = []
             with gr.Column():
@@ -400,7 +400,7 @@ with gr.Blocks(title="Dijkstra's Shortest Path Algorithm — Grounded SOT Platfo
             with gr.Row():
                 doc_selector = gr.Dropdown(
                     choices=list(DOC_FILES.keys()),
-                    value="GeeksforGeeks: Adjacency List + Min-Heap O((V+E)log V) Guide",
+                    value="MIT 6.006: SSSP Formulation, Greedy Strategy & Pseudocode",
                     label="Choose Document from Knowledge Base",
                     scale=3
                 )
@@ -416,7 +416,7 @@ with gr.Blocks(title="Dijkstra's Shortest Path Algorithm — Grounded SOT Platfo
                         interactive=False
                     )
 
-            doc_display = gr.Markdown(value=get_doc_content("GeeksforGeeks: Adjacency List + Min-Heap O((V+E)log V) Guide"))
+            doc_display = gr.Markdown(value=get_doc_content("MIT 6.006: SSSP Formulation, Greedy Strategy & Pseudocode"))
             doc_selector.change(get_doc_content, doc_selector, doc_display)
 
             with gr.Accordion("🔄 Engineering Methodology: Alignment with 'The Cycle' (TIET UCS503)", open=True):
@@ -425,7 +425,7 @@ This project was engineered following the **5 Steps of 'The Cycle'** (TIET UCS50
 
 1. **Step 1: Concept (What, For Whom)**:
    - A fully grounded, Single-Source-of-Truth RAG and multi-modal learning system for Dijkstra's Shortest Path Algorithm.
-   - Grounded exclusively in authentic academic materials: GeeksforGeeks (GFG) & MIT 6.006 Lecture 16 (Prof. Erik Demaine & Prof. Srinivas Devadas).
+   - Grounded exclusively in authentic academic materials: MIT 6.006 Lecture 16 (Prof. Erik Demaine & Prof. Srinivas Devadas) and CLRS Chapter 24.
 
 2. **Step 2: Contract (What Others May Rely On)**:
    - **RAG Query Contract**: Structured JSON response schema `{query, answer, confidence_score, citations, exact_quotes}`.

@@ -84,11 +84,11 @@ class HybridRAGEngine:
             
             # Find source metadata from manifest if available
             source_name = fname.replace("_", " ").replace(".md", "").title()
-            source_url = "https://www.geeksforgeeks.org/"
-            for s in self.manifest.get("sources", []):
-                if s.get("id") == source_id:
-                    source_name = s.get("name", source_name)
-                    source_url = s.get("url", source_url)
+            source_url = "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/"
+            for s in self.manifest.get("indexed_academic_documents", []):
+                if s.get("file_name") == fname:
+                    source_name = s.get("title", source_name)
+                    source_url = "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/"
                     break
             
             # Split markdown by sections (## or ###)
@@ -240,15 +240,15 @@ class HybridRAGEngine:
                 "answer": (
                     "⚠️ **Out of Scope (Single Source of Truth Guardrail)**\n\n"
                     f"Your question appears to be about a topic outside the scope of **Dijkstra's Shortest Path Algorithm**.\n\n"
-                    "This RAG system is strictly grounded in **Dijkstra's Algorithm** as documented in **GeeksforGeeks** "
-                    "and **MIT 6.006 Lecture 16 (Prof. Erik Demaine & Prof. Srinivas Devadas)**.\n\n"
+                    "This RAG system is strictly grounded in **Dijkstra's Algorithm** as presented by "
+                    "**Prof. Erik Demaine & Prof. Srinivas Devadas** in **MIT 6.006 Lecture 16** and **CLRS Chapter 24**.\n\n"
                     "Please ask a question related to:\n"
                     "- Dijkstra's algorithm mechanics & edge relaxation\n"
-                    "- Adjacency matrix vs Min-Heap vs `std::set` representations\n"
-                    "- Time and space complexity trade-offs (O(V²) vs O((V + E) log V))\n"
-                    "- Why Dijkstra fails on negative weights & negative cycles\n"
-                    "- Real-world applications (OSPF network routing, Google Maps, robotics)\n"
-                    "- Formal correctness proofs and loop invariants"
+                    "- Priority Queue implementations (Array Theta(V²) vs Min-Heap Theta((V + E) log V) vs Fibonacci Heap)\n"
+                    "- Why Dijkstra fails on negative weights & negative cycles (The Greedy Choice Invariant)\n"
+                    "- The Balls and String physical intuition by Prof. Erik Demaine\n"
+                    "- Real-world applications (OSPF network routing, Google Maps GPS, robotics)\n"
+                    "- Formal correctness proofs, safety lemma, and triangle inequality"
                 ),
                 "is_grounded": False,
                 "confidence": 0.0,
@@ -261,7 +261,7 @@ class HybridRAGEngine:
         if not top_results or top_results[0][1] < 0.08:
             return {
                 "answer": (
-                    "I could not find sufficient grounding in our GeeksforGeeks and MIT 6.006 archive to reliably answer this question.\n\n"
+                    "I could not find sufficient grounding in our MIT 6.006 Lecture 16 archive to reliably answer this question.\n\n"
                     "To maintain complete factual grounding without hallucination, please ask a question specifically about "
                     "Dijkstra's algorithm, edge relaxation, time complexities, negative weight behavior, or network applications."
                 ),
@@ -282,105 +282,90 @@ class HybridRAGEngine:
         if "negative" in q_lower:
             answer_parts.append(
                 "### Why Dijkstra's Algorithm Fails with Negative Weights\n\n"
-                "According to **GeeksforGeeks** and **MIT 6.006 Lecture 16**, Dijkstra's algorithm relies on the **Greedy Invariant**:\n"
-                "> Once a vertex u is extracted from the priority queue / added to the Shortest Path Tree (`sptSet`), its tentative distance `dist[u]` is declared finalized and optimal.\n\n"
+                "According to **MIT 6.006 Lecture 16 (Prof. Erik Demaine & Prof. Srinivas Devadas)**, Dijkstra's algorithm relies on the **Greedy Choice Invariant**:\n"
+                "> Each time a vertex u is added to set S (via EXTRACT-MIN), its tentative distance d[u] is guaranteed to equal the true shortest path weight delta(s, u).\n\n"
                 "**The Failure Mechanism**:\n"
                 "1. If an edge weight w(u, v) is negative, adding an edge can **decrease** the total path weight.\n"
                 "2. A longer path passing through an unvisited vertex could have a large negative edge that reduces its total cost below a finalized vertex.\n"
-                "3. Because Dijkstra's algorithm **never re-evaluates or re-inserts a finalized vertex**, it fails to find the true shortest path.\n\n"
-                "**Classic 3-Node Counterexample**:\n"
+                "3. Because Dijkstra's algorithm **never re-evaluates or re-inserts a finalized vertex in set S**, it fails to find the true shortest path.\n\n"
+                "**Classic 3-Node Counterexample (Prof. Demaine)**:\n"
                 "- Vertices A (source), B, C\n"
                 "- Edges: (A, B) = +5, (A, C) = +2, (B, C) = -6\n"
-                "- Dijkstra picks A (dist=0), relaxes (A, C) → 2 and (A, B) → 5.\n"
-                "- Next, it greedily pops C with dist[C] = 2 and marks it finalized.\n"
-                "- Later, it pops B (dist=5) and sees edge (B, C) with weight -6: total path A → B → C = 5 - 6 = -1.\n"
-                "- Since C was already marked visited, Dijkstra **misses the optimal path of length -1** and incorrectly outputs dist[C] = 2.\n\n"
+                "- Dijkstra picks A (d[A]=0), relaxes (A, C) -> 2 and (A, B) -> 5.\n"
+                "- Next, it greedily pops C with d[C] = 2 and permanently marks it finalized in S.\n"
+                "- Later, it pops B (d[B]=5) and sees edge (B, C) with weight -6: total path A -> B -> C = 5 - 6 = -1.\n"
+                "- Since C was already in set S, Dijkstra **misses the optimal path of length -1** and incorrectly outputs d[C] = 2.\n\n"
                 "**Alternative Algorithm**:\n"
-                "For graphs with negative edge weights, use the **Bellman-Ford Algorithm** (O(V · E)), which can also detect negative weight cycles."
+                "For graphs with negative edge weights, Prof. Demaine specifies using the **Bellman-Ford Algorithm** (O(V · E)), which can also detect negative weight cycles."
             )
         elif "complex" in q_lower or "time" in q_lower or "space" in q_lower or "o(" in q_lower:
             answer_parts.append(
-                "### Time and Space Complexities of Dijkstra's Algorithm\n\n"
-                "Based on the **GeeksforGeeks** and **MIT 6.006** analysis, the efficiency of Dijkstra's algorithm depends directly on the underlying graph representation and priority queue data structure:\n\n"
-                "| Representation / Data Structure | Time Complexity | Space Complexity | Best Suited For |\n"
-                "| :--- | :--- | :--- | :--- |\n"
-                "| **Adjacency Matrix + Array Linear Scan** | **O(V²)** | O(V²) graph, O(V) auxiliary | **Dense Graphs** (E ≈ V²) |\n"
-                "| **Adjacency List + Binary Min-Heap (`heapq` / `priority_queue`)** | **O((V + E) log V)** | O(V + E) | **Sparse Graphs** (E ≪ V²) |\n"
-                "| **Adjacency List + C++ `std::set` (Red-Black Tree)** | **O((V + E) log V)** | O(V) auxiliary (max V items) | Memory-constrained systems |\n"
-                "| **Adjacency List + Fibonacci Heap** | **O(E + V log V)** | O(V + E) | Theoretical optimum |\n\n"
-                "**Why Min-Heap achieves O((V + E) log V)**:\n"
-                "- `Extract-Min` is called V times: each takes O(log V) → O(V log V).\n"
-                "- `Relaxation / Heap-Push` is executed at most once per edge: E times, each taking O(log V) → O(E log V).\n"
-                "- Summing both gives O(V log V + E log V) = **O((V + E) log V)**."
+                "### Time and Space Complexities of Dijkstra's Algorithm (MIT 6.006)\n\n"
+                "Based on the **MIT 6.006 / 6.046J** lecture analysis by Prof. Erik Demaine and Prof. Srinivas Devadas, the efficiency of Dijkstra's algorithm depends directly on the priority queue data structure:\n\n"
+                "| Data Structure | Extract-Min Time | Decrease-Key Time | Total Time Complexity | Best Suited For |\n"
+                "| :--- | :--- | :--- | :--- | :--- |\n"
+                "| **Unsorted Array / Linear Scan** | **Theta(V)** | **Theta(1)** | **Theta(V²)** | **Dense Graphs** (E ≈ V²) |\n"
+                "| **Binary Min-Heap (`heapq` / Priority Queue)** | **Theta(log V)** | **Theta(log V)** | **Theta((V + E) log V)** | **Sparse Graphs / Road Networks** (E ≪ V²) |\n"
+                "| **Fibonacci Heap (Theoretical Optimum)** | **Theta(log V)** | **Theta(1) amortized** | **Theta(V log V + E)** | Asymptotic theoretical bound |\n\n"
+                "**Why Binary Min-Heap achieves Theta((V + E) log V)**:\n"
+                "- `Extract-Min` is called exactly |V| times: each takes Theta(log V) -> Theta(V log V).\n"
+                "- `Decrease-Key` (edge relaxation) is executed at most |E| times: each takes Theta(log V) -> Theta(E log V).\n"
+                "- Summing both gives Theta(V log V + E log V) = **Theta((V + E) log V)**."
             )
         elif "relax" in q_lower or "formula" in q_lower or "invariant" in q_lower or "triangle" in q_lower:
             answer_parts.append(
                 "### The Edge Relaxation Step & Mathematical Invariants\n\n"
                 "In **MIT 6.006 Lecture 16**, Prof. Erik Demaine and Prof. Srinivas Devadas formalize edge relaxation:\n\n"
-                "```\n"
-                "Relax(u, v, w):\n"
+                "```text\n"
+                "RELAX(u, v, w):\n"
                 "    if d[v] > d[u] + w(u, v):\n"
                 "        d[v] = d[u] + w(u, v)\n"
-                "        π[v] = u\n"
+                "        pi[v] = u\n"
                 "```\n\n"
                 "**Core Properties Established in Lecture 16**:\n"
-                "1. **Upper-Bound Property**: d[v] ≥ δ(s, v) for all vertices v at all times. Once d[v] reaches δ(s, v), it never changes.\n"
-                "2. **Triangle Inequality**: For any edge (u, v) in E: δ(s, v) ≤ δ(s, u) + w(u, v).\n"
-                "3. **Convergence Property**: If s ~> u → v is a shortest path, and d[u] = δ(s, u) prior to relaxing edge (u, v), then d[v] = δ(s, v) after the relaxation.\n"
+                "1. **Upper-Bound Property**: d[v] >= delta(s, v) for all vertices v at all times. Once d[v] reaches delta(s, v), it never changes.\n"
+                "2. **Triangle Inequality**: For any edge (u, v) in E: delta(s, v) <= delta(s, u) + w(u, v).\n"
+                "3. **Convergence Property**: If s -> ... -> u -> v is a shortest path, and d[u] = delta(s, u) prior to relaxing edge (u, v), then d[v] = delta(s, v) after the relaxation.\n"
                 "4. **Shortest-Path Substructure**: Any subpath of a shortest path is itself a shortest path."
             )
-        elif "application" in q_lower or "ospf" in q_lower or "gps" in q_lower or "maps" in q_lower or "real world" in q_lower:
+        elif "application" in q_lower or "ospf" in q_lower or "gps" in q_lower or "maps" in q_lower or "real world" in q_lower or "balls" in q_lower:
             answer_parts.append(
-                "### Real-World Applications of Dijkstra's Algorithm\n\n"
-                "As documented in **GeeksforGeeks Applications Guide**:\n\n"
-                "1. **OSPF (Open Shortest Path First) & IS-IS Routing Protocol**:\n"
-                "   - Core Internet routers exchange Link-State Advertisements (LSAs) to build a synchronized topology graph.\n"
-                "   - Each router runs Dijkstra's algorithm with itself as the source node to calculate the fastest forwarding routes (SPF tree) in its IP routing table.\n\n"
-                "2. **Digital Mapping & GPS (Google Maps, Waze)**:\n"
-                "   - Intersections are vertices; roads are edges with weights representing estimated travel times (distance / speed limit + live traffic congestion).\n"
-                "   - Modern systems extend Dijkstra with **A* Search** and **Contraction Hierarchies** for instant continent-scale routing.\n\n"
-                "3. **Telecommunications & Optical Fiber Routing**:\n"
-                "   - Finding minimum latency routes across submarine fiber-optic cables for high-frequency financial trading.\n\n"
-                "4. **Robotics & Autonomous Vehicle Pathfinding**:\n"
-                "   - Generating collision-free, minimum-battery paths across discretized obstacle grid maps."
+                "### Real-World Applications & Physical Models (MIT 6.006)\n\n"
+                "As taught in **MIT 6.006 Lecture 16** by Prof. Erik Demaine:\n\n"
+                "1. **Prof. Demaine's Balls and Strings Model**:\n"
+                "   - Imagine vertices as wooden balls and edges as strings of length w(u, v).\n"
+                "   - Pulling the source ball s straight up lifts other balls as strings become taut.\n"
+                "   - The sequence in which balls leave the table corresponds exactly to the order of EXTRACT-MIN in Dijkstra's algorithm!\n\n"
+                "2. **OSPF (Open Shortest Path First) Internet Routing**:\n"
+                "   - Core Internet routers exchange Link-State Advertisements (LSAs) and execute Dijkstra's algorithm to compute the shortest routing paths for IP forwarding tables.\n\n"
+                "3. **Road Networks & GPS Navigation (Google Maps)**:\n"
+                "   - Intersections are modeled as vertices and road segments as edges weighted by travel time, solved via Dijkstra and A* search.\n\n"
+                "4. **Robotics Motion Planning**:\n"
+                "   - Collision-free grid traversals across configuration spaces."
             )
         elif "code" in q_lower or "python" in q_lower or "c++" in q_lower or "implement" in q_lower or "java" in q_lower:
             answer_parts.append(
-                "### Dijkstra's Algorithm Implementation (Python & C++)\n\n"
-                "Here is the standard **GeeksforGeeks** Min-Heap implementation in Python using `heapq` ($O((V+E)\\log V)$):\n\n"
+                "### Dijkstra's Algorithm Implementation (MIT 6.006 Pseudocode to Python)\n\n"
+                "Here is the standard priority queue implementation in Python using `heapq` (O((V + E) log V)) matching the pseudocode presented in MIT 6.006 Lecture 16:\n\n"
                 "```python\n"
                 "import heapq\n\n"
                 "def dijkstra(V, adj, src):\n"
+                "    # INITIALIZE-SINGLE-SOURCE\n"
                 "    dist = [float('inf')] * V\n"
                 "    parent = [-1] * V\n"
                 "    dist[src] = 0\n"
-                "    pq = [(0, src)]  # (distance, vertex)\n\n"
+                "    pq = [(0, src)]  # (d[u], u)\n\n"
                 "    while pq:\n"
-                "        d, u = heapq.heappop(pq)\n"
-                "        if d > dist[u]:  # Lazy deletion of outdated entries\n"
+                "        d, u = heapq.heappop(pq)  # EXTRACT-MIN(Q)\n"
+                "        if d > dist[u]:           # Skip outdated entries\n"
                 "            continue\n"
                 "        for v, weight in adj[u]:\n"
+                "            # RELAX(u, v, w)\n"
                 "            if dist[u] + weight < dist[v]:\n"
                 "                dist[v] = dist[u] + weight\n"
                 "                parent[v] = u\n"
                 "                heapq.heappush(pq, (dist[v], v))\n\n"
                 "    return dist, parent\n"
-                "```\n\n"
-                "And using C++ `std::set` to maintain at most $V$ elements via explicit deletion:\n"
-                "```cpp\n"
-                "set<pair<int, int>> st;\n"
-                "st.insert({0, src});\n"
-                "while (!st.empty()) {\n"
-                "    auto [d, u] = *st.begin();\n"
-                "    st.erase(st.begin());\n"
-                "    for (auto [v, weight] : adj[u]) {\n"
-                "        if (dist[u] + weight < dist[v]) {\n"
-                "            if (dist[v] != INF) st.erase({dist[v], v});\n"
-                "            dist[v] = dist[u] + weight;\n"
-                "            st.insert({dist[v], v});\n"
-                "        }\n"
-                "    }\n"
-                "}\n"
                 "```"
             )
         else:

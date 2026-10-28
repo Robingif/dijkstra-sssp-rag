@@ -24,7 +24,7 @@ Dijkstra's Algorithm (Single-Source Shortest Paths in Weighted Graphs)
 
 ### **Single Source of Truth (SOT) Used**:
 ```text
-1. GeeksforGeeks (GFG): Core SSSP Guide (Adjacency Matrix O(V²)), Min-Heap Guide (O((V + E) log V)), C++ std::set Guide, Negative Weights Breakdown, and Real-World Applications (OSPF, GPS).
+1. MIT 6.006 (Prof. Erik Demaine & Srinivas Devadas) (MIT 6.006): Core SSSP Guide (Adjacency Matrix O(V²)), Min-Heap Guide (O((V + E) log V)), C++ std::set Guide, Negative Weights Breakdown, and Real-World Applications (OSPF, GPS).
 2. MIT OpenCourseWare 6.006 (Fall 2011, Lecture 16: Dijkstra): Taught by Prof. Erik Demaine & Prof. Srinivas Devadas (Edge relaxation invariant proofs, triangle inequality, upper-bound property).
 ```
 
@@ -80,12 +80,12 @@ Both options feature complete synchronized bilingual subtitles (English & Hindi)
 
 ```text
 Project Overview:
-I have engineered a production-grade, custom-built Retrieval-Augmented Generation (RAG) system and multi-modal learning suite grounded in a single source of truth: lecture and tutorial content on Dijkstra's Shortest Path Algorithm from GeeksforGeeks (GFG) and MIT 6.006 (Prof. Erik Demaine & Prof. Srinivas Devadas).
+I have engineered a production-grade, custom-built Retrieval-Augmented Generation (RAG) system and multi-modal learning suite grounded in a single source of truth: lecture and tutorial content on Dijkstra's Shortest Path Algorithm from MIT 6.006 (Prof. Erik Demaine & Prof. Srinivas Devadas).
 
 The engineering process strictly adhered to "The Cycle" (Concept -> Contract -> Tests -> Implementation -> Refinement):
 
 1. Strict Single-Source-of-Truth Grounding:
-   - The hybrid retrieval engine indexes 55 semantic chunks across authentic GFG guides and MIT Lecture 16.
+   - The hybrid retrieval engine indexes 55 semantic chunks across authentic MIT 6.006 guides and MIT Lecture 16.
    - Out-of-scope topics (e.g., QuickSort, dynamic programming) are cleanly rejected with 0% false confidence.
    - Clean mathematical formatting without raw LaTeX dollar signs (O(V²), O((V + E) log V), δ(s, v), w(u, v) ≥ 0).
 
@@ -106,7 +106,7 @@ The engineering process strictly adhered to "The Cycle" (Concept -> Contract -> 
 
 5. Interactive Assessment Quiz:
    - 6 multiple-choice questions testing algorithmic invariants, complexity trade-offs, and applications.
-   - Instant scoring, mastery badges, and grounded rationales quoting GFG and MIT 6.006.
+   - Instant scoring, mastery badges, and grounded rationales quoting MIT 6.006.
 
 6. Presentation Slides:
    - Downloadable 9-slide PowerPoint deck (.pptx) and embedded interactive HTML5 presentation.

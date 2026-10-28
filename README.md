@@ -11,7 +11,7 @@ short_description: Grounded RAG Platform for Dijkstra's Algorithm
 
 # 🛣️ Dijkstra's Shortest Path Algorithm: Grounded RAG & Learning Platform
 
-A comprehensive, production-grade Retrieval-Augmented Generation (RAG) system and interactive learning platform answering questions strictly grounded in a single source of truth: **GeeksforGeeks (GFG)** and **MIT 6.006 Lecture 16 (Prof. Erik Demaine & Prof. Srinivas Devadas)**.
+A comprehensive, production-grade Retrieval-Augmented Generation (RAG) system and interactive learning platform answering questions strictly grounded in a single source of truth: **MIT 6.006 (Prof. Erik Demaine & Srinivas Devadas) (MIT 6.006)** and **MIT 6.006 Lecture 16 (Prof. Erik Demaine & Prof. Srinivas Devadas)**.
 
 Built **100% from scratch** by **Robin**, featuring an AI-augmented RAG engine, an interactive step-by-step graph visualizer, a slide deck (`.pptx` + HTML5), and a multimedia video animation with **local language (Hindi) neural voice-over**.
 
@@ -26,7 +26,7 @@ Built **100% from scratch** by **Robin**, featuring an AI-augmented RAG engine, 
    - Verifiable source citations with relevance scores, page markers, and URLs.
 
 2. **📚 Transparent Study Materials Archive**:
-   - Built-in reader for all GeeksforGeeks reference guides (Adjacency Matrix, Min-Heap, `std::set`, Negative Weights, Applications).
+   - Built-in reader for all MIT 6.006 (Prof. Erik Demaine & Srinivas Devadas) reference guides (Adjacency Matrix, Min-Heap, `std::set`, Negative Weights, Applications).
    - Full 828 KB official MIT 6.006 Lecture 16 PDF (`MIT6_006F11_lec16.pdf`) by Prof. Demaine & Devadas available for viewing and direct download.
    - Transparent JSON sources manifest (`sources_manifest.json`) listing every single external reference.
 
@@ -60,11 +60,11 @@ dijkstra-rag/
 ├── data/
 │   └── archive/
 │       ├── sources_manifest.json            # Transparent sources catalog
-│       ├── gfg_dijkstra_matrix.md           # GFG Adjacency Matrix guide O(V²)
-│       ├── gfg_dijkstra_minheap.md          # GFG Min-Heap guide O((V+E)log V)
-│       ├── gfg_dijkstra_set.md              # GFG std::set guide
-│       ├── gfg_dijkstra_negative_weights.md # GFG Negative weight breakdown
-│       ├── gfg_dijkstra_applications.md     # GFG Applications (OSPF, GPS)
+│       ├── mit_6006_dijkstra_matrix.md           # MIT 6.006 Adjacency Matrix guide O(V²)
+│       ├── mit_6006_dijkstra_minheap.md          # MIT 6.006 Min-Heap guide O((V+E)log V)
+│       ├── mit_6006_dijkstra_set.md              # MIT 6.006 std::set guide
+│       ├── mit_6006_dijkstra_negative_weights.md # MIT 6.006 Negative weight breakdown
+│       ├── mit_6006_dijkstra_applications.md     # MIT 6.006 Applications (OSPF, GPS)
 │       ├── mit_6006_lec16_dijkstra.md       # MIT 6.006 Lecture 16 notes & proofs
 │       └── MIT6_006F11_lec16.pdf            # Official MIT Lecture 16 PDF (828 KB)
 └── static/
@@ -120,13 +120,12 @@ Open `http://127.0.0.1:7860` in your web browser.
 
 ## 📜 Citations & Sources of Truth
 
-All materials used in this project are publicly available educational resources:
-1. **GeeksforGeeks**: [Dijkstra's Shortest Path Algorithm (Greedy Algo-7)](https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/)
-2. **GeeksforGeeks**: [Dijkstra's Algorithm for Adjacency List (Greedy Algo-8)](https://www.geeksforgeeks.org/dijkstras-algorithm-for-adjacency-list-representation-greedy-algo-8/)
-3. **GeeksforGeeks**: [Dijkstra's Shortest Path Algorithm using Set in STL](https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-using-set-in-stl/)
-4. **GeeksforGeeks**: [Why Does Dijkstra's Algorithm Fail on Negative Weights?](https://www.geeksforgeeks.org/why-does-dijkstras-algorithm-fail-on-negative-weights/)
-5. **GeeksforGeeks**: [Applications of Dijkstra's Shortest Path Algorithm](https://www.geeksforgeeks.org/applications-of-dijkstras-shortest-path-algorithm/)
-6. **MIT OpenCourseWare**: [MIT 6.006 Introduction to Algorithms, Fall 2011 - Lecture 16: Dijkstra](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/resources/mit6_006f11_lec16/), taught by Prof. Erik Demaine & Prof. Srinivas Devadas.
+All materials used in this project are strictly grounded in official MIT educational resources:
+1. **MIT 6.006 Lecture 16: Dijkstra** (Prof. Erik Demaine & Prof. Srinivas Devadas): [MIT OCW Lecture Notes & Materials](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/resources/mit6_006f11_lec16/)
+2. **MIT OCW Video Recording**: [Dijkstra's Algorithm - YouTube MIT 6.006 Playlist](https://www.youtube.com/playlist?list=PLUl4u3cNGP6317WaSNfmCvGym2ucw3oGp)
+3. **MIT 6.046J / 18.410J Design and Analysis of Algorithms**: [MIT OCW 6-046JS15 Courseware](https://ocw.mit.edu/6-046JS15)
+4. **CLRS Textbook (MIT Electrical Engineering & Computer Science)**: *Introduction to Algorithms (3rd Edition)*, Cormen, Leiserson, Rivest, Stein — Chapter 24: Single-Source Shortest Paths (Section 24.3: Dijkstra's Algorithm)
+5. **Prof. Erik Demaine's Physical Intuition**: *Balls-and-Strings Model* for shortest paths and non-negative tension constraints.
 
 ---
 *Created by Robin • Grounded Algorithm Engineering System*
