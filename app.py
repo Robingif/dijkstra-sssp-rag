@@ -225,23 +225,27 @@ with gr.Blocks(title="Dijkstra's Shortest Path Algorithm — Grounded SOT Platfo
 
                 with gr.Column(scale=1):
                     gr.HTML("""
-                    <div style="background:#1e293b; border:1px solid #334155; border-radius:12px; padding:18px;">
-                        <h4 style="color:#38bdf8; margin:0 0 10px 0; font-size:15px;">🛡️ Grounding Safeguards</h4>
-                        <ul style="font-size:12px; line-height:1.6; color:#cbd5e1; padding-left:18px; margin:0;">
-                            <li><b>Single Source of Truth</b>: Answers generated <i>exclusively</i> from MIT 6.006 Lecture 16 notes and CLRS Chapter 24.</li>
-                            <li><b>No Hallucinations</b>: Out-of-scope topics (e.g., QuickSort, Dynamic Programming) are cleanly rejected with 0% false confidence.</li>
-                            <li><b>Exact Quotes & Citations</b>: Every response includes verbatim quotes and mathematical references.</li>
-                            <li><b>Clean Typography</b>: Zero raw LaTeX artifacts; rendered using clean mathematical symbols (O(V²), O((V + E) log V), δ(s, v)).</li>
-                        </ul>
-                    </div>
-
-                    <div style="background:#1e293b; border:1px solid #334155; border-radius:12px; padding:18px; margin-top:16px;">
-                        <h4 style="color:#10b981; margin:0 0 10px 0; font-size:15px;">📊 Indexed Knowledge Base</h4>
-                        <div style="font-size:12px; color:#94a3b8; line-height:1.6;">
-                            • <b>MIT 6.006 Lecture 16</b>: Prof. Erik Demaine & Prof. Srinivas Devadas<br/>
-                            • <b>MIT OCW Course Modules</b>: SSSP Formulation, Edge Relaxation Invariants, Heap Complexities, Greedy Correctness Proofs<br/>
-                            • <b>Total Passages</b>: 49 Semantic Chunks<br/>
-                            • <b>Retrieval Engine</b>: Hybrid BM25 + TF-IDF Vector Space
+                    <div style="background:#1e293b; border:1px solid rgba(56, 189, 248, 0.3); border-radius:12px; padding:20px;">
+                        <h4 style="color:#38bdf8; margin:0 0 12px 0; font-size:15px; font-weight:700;">📊 Indexed Knowledge Base (MIT 6.006)</h4>
+                        <div style="font-size:12px; color:#cbd5e1; line-height:1.7;">
+                            <p style="margin-bottom:10px;">
+                                Grounded strictly in <b>MIT 6.006 (Fall 2011)</b> by <b>Prof. Erik Demaine & Prof. Srinivas Devadas</b> and <b>CLRS Chapter 24</b>.
+                            </p>
+                            <div style="background:#0f172a; border:1px solid #334155; border-radius:8px; padding:10px 12px; margin-bottom:10px;">
+                                <b style="color:#10b981;">📚 Academic Corpus Composition:</b><br/>
+                                • <b>41 Semantic Section Chunks</b> across 6 Core Architectural Markdown Documents<br/>
+                                • <b>8 PDF Page Chunks</b> extracted from Official MIT Lecture 16 PDF (<code>MIT6_006F11_lec16.pdf</code>)<br/>
+                                • <b>Total Volume</b>: Exactly <b>49 Verified Semantic Chunks</b> (~18,500 total tokens)
+                            </div>
+                            <div style="background:#0f172a; border:1px solid #334155; border-radius:8px; padding:10px 12px; margin-bottom:10px;">
+                                <b style="color:#38bdf8;">🔍 Retrieval Engine & Calibration:</b><br/>
+                                • <b>Vector Space Model</b>: TF-IDF with L2-normalized cosine similarity<br/>
+                                • <b>Lexical Search</b>: BM25 term saturation (k1=1.2, b=0.75)<br/>
+                                • <b>Similarity Threshold</b>: Calibrated at <b>0.08</b> for optimal precision-recall balance
+                            </div>
+                            <div style="font-size:11px; color:#94a3b8;">
+                                <i>Academic Modules Covered:</i> SSSP Formulation, Edge Relaxation Invariants, Triangle Inequality, Unsorted Array Θ(V²), Min-Heap Θ((V+E) log V), Fibonacci Heap Θ(V log V + E), Demaine's Balls-and-Strings Intuition, OSPF Internet Routing, and Google Maps GPS.
+                            </div>
                         </div>
                     </div>
                     """)

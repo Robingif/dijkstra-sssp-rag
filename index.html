@@ -332,25 +332,32 @@
                 </div>
             </div>
 
-            <!-- Grounding Safeguards Sidebar -->
+            <!-- Detailed Indexed Knowledge Base Sidebar -->
             <div>
-                <div class="panel-card" style="padding:16px;">
-                    <h4 style="color:#38bdf8; margin-bottom:8px; font-size:14px;">🛡️ Grounding Safeguards</h4>
-                    <ul style="font-size:12px; line-height:1.6; color:#cbd5e1; padding-left:16px;">
-                        <li><b>Single Source of Truth</b>: Answers generated <i>exclusively</i> from MIT 6.006 Lecture 16.</li>
-                        <li><b>Out-of-Scope Detection</b>: Cleanly rejects unrelated topics (e.g., QuickSort) with 0% false confidence.</li>
-                        <li><b>Exact Citations</b>: Every response quotes mathematical definitions and page markers.</li>
-                        <li><b>Clean Typography</b>: Zero raw LaTeX dollar signs; uses clean math symbols (O(V²), O((V + E) log V), δ(s, v)).</li>
-                    </ul>
-                </div>
-
-                <div class="panel-card" style="padding:16px; margin-bottom:0;">
-                    <h4 style="color:#10b981; margin-bottom:8px; font-size:14px;">📊 Indexed Knowledge Base</h4>
-                    <div style="font-size:12px; color:#94a3b8; line-height:1.6;">
-                        • <b>MIT 6.006 Lecture 16</b>: Prof. Erik Demaine & Prof. Srinivas Devadas<br/>
-                        • <b>MIT OCW Lecture Modules</b>: Matrix, Min-Heap, std::set, Negative Weights, OSPF/GPS<br/>
-                        • <b>Total Passages</b>: 49 Semantic Chunks<br/>
-                        • <b>Retrieval Engine</b>: Hybrid BM25 + TF-IDF Vector Space
+                <div class="panel-card" style="padding:20px; border-color: rgba(56, 189, 248, 0.3);">
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+                        <span style="font-size:20px;">📊</span>
+                        <h4 style="color:#38bdf8; margin:0; font-size:15px; font-weight:700;">Indexed Knowledge Base (MIT 6.006)</h4>
+                    </div>
+                    <div style="font-size:12px; color:#cbd5e1; line-height:1.7;">
+                        <p style="margin-bottom:10px;">
+                            The RAG system is grounded strictly in <b>MIT 6.006 (Fall 2011)</b> taught by <b>Prof. Erik Demaine & Prof. Srinivas Devadas</b>, alongside companion text from <b>CLRS Chapter 24</b>.
+                        </p>
+                        <div style="background:#0f172a; border:1px solid #334155; border-radius:8px; padding:10px 12px; margin-bottom:12px;">
+                            <div style="color:#10b981; font-weight:bold; margin-bottom:4px;">📚 Academic Corpus Composition:</div>
+                            • <b>41 Semantic Section Chunks</b> across 6 Core Architectural Markdown Documents<br/>
+                            • <b>8 PDF Page Chunks</b> extracted from Official MIT Lecture 16 Notes (<code>MIT6_006F11_lec16.pdf</code>)<br/>
+                            • <b>Total Volume</b>: Exactly <b>49 Verified Semantic Chunks</b> (~18,500 total tokens)
+                        </div>
+                        <div style="background:#0f172a; border:1px solid #334155; border-radius:8px; padding:10px 12px; margin-bottom:12px;">
+                            <div style="color:#38bdf8; font-weight:bold; margin-bottom:4px;">🔍 Retrieval Engine & Mathematical Calibration:</div>
+                            • <b>Vector Space Model</b>: TF-IDF with L2-normalized cosine similarity<br/>
+                            • <b>Lexical Search</b>: BM25 term saturation (k1=1.2, b=0.75)<br/>
+                            • <b>Similarity Threshold</b>: Calibrated at <b>0.08</b> for optimal precision-recall balance
+                        </div>
+                        <div style="font-size:11px; color:#94a3b8;">
+                            <i>Academic Modules Covered:</i> SSSP Formulation, Edge Relaxation Invariants, Triangle Inequality, Unsorted Array Θ(V²), Min-Heap Θ((V+E) log V), Fibonacci Heap Θ(V log V + E), Demaine's Balls-and-Strings Intuition, OSPF Internet Routing, and Google Maps GPS.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -371,12 +378,18 @@
                 </div>
             </div>
 
-            <!-- Video Player -->
-            <div class="video-box">
-                <video id="mainVideoPlayer" controls preload="metadata">
+            <!-- Video Player with On-Screen YouTube-style Live Subtitles -->
+            <div class="video-box" style="position: relative; width: 100%; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                <video id="mainVideoPlayer" controls preload="metadata" style="width: 100%; display: block;" crossorigin="anonymous">
                     <source id="videoSource" src="static/dijkstra_walkthrough_english.mp4" type="video/mp4">
+                    <track id="trackEn" label="English" kind="subtitles" srclang="en" src="static/subtitles_en.vtt" default>
+                    <track id="trackHi" label="Hindi (हिंदी)" kind="subtitles" srclang="hi" src="static/subtitles_hi.vtt">
                     Your browser does not support HTML5 video.
                 </video>
+                <!-- On-Screen YouTube-style Live Subtitles Overlay -->
+                <div id="videoLiveCC" style="position: absolute; bottom: 62px; left: 50%; transform: translateX(-50%); background: rgba(11, 15, 25, 0.90); border: 1px solid rgba(56, 189, 248, 0.4); color: #f8fafc; padding: 8px 20px; border-radius: 6px; font-size: 15px; font-weight: 600; text-align: center; max-width: 86%; pointer-events: none; transition: opacity 0.2s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.7); line-height: 1.4; z-index: 10;">
+                    Welcome to Dijkstra's Single-Source Shortest Path Algorithm (SSSP).
+                </div>
             </div>
 
             <!-- Audio & Downloads Row -->
@@ -395,53 +408,31 @@
                 </div>
             </div>
 
-            <h4 style="color:#cbd5e1; margin-bottom:10px;">📜 Complete Synchronized Dual Subtitles (English & हिंदी)</h4>
-            <table class="sub-table">
-                <thead>
-                    <tr>
-                        <th style="width:120px;">Timestamp</th>
-                        <th>English Subtitle</th>
-                        <th>हिंदी सबटाइटल</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><b>0:00 - 0:08</b></td>
-                        <td>Welcome to Dijkstra's Single-Source Shortest Path Algorithm (SSSP).</td>
-                        <td>डाइक्स्ट्रा सिंगल-सोर्स शॉर्टेस्ट पाथ एल्गोरिदम में आपका स्वागत है।</td>
-                    </tr>
-                    <tr>
-                        <td><b>0:08 - 0:18</b></td>
-                        <td>Initialization: Source node A set to distance 0, other nodes set to infinity.</td>
-                        <td>प्रारंभ: सोर्स नोड A की दूरी 0, और बाकी नोड्स की दूरी अनंत (infinity) रखी गई।</td>
-                    </tr>
-                    <tr>
-                        <td><b>0:18 - 0:29</b></td>
-                        <td>Greedy choice: Extract min node A (d=0). Relax outgoing edges A➔B (4) and A➔C (2).</td>
-                        <td>ग्रीडी चॉइस: न्यूनतम दूरी नोड A (d=0)। एज रिलैक्सेशन A➔B (4) और A➔C (2)।</td>
-                    </tr>
-                    <tr>
-                        <td><b>0:29 - 0:43</b></td>
-                        <td>Node C has min dist 2. Relax C➔B (2+1=3 &lt; 4, updated!) and C➔E (2+8=10).</td>
-                        <td>नोड C न्यूनतम दूरी 2 पर। रिलैक्स C➔B (2+1=3 &lt; 4, अपडेट!) और C➔E (2+8=10)।</td>
-                    </tr>
-                    <tr>
-                        <td><b>0:43 - 0:56</b></td>
-                        <td>Node B has min dist 3. Relax B➔D (3+5=8). Complexity with Min-Heap is O((V+E) log V).</td>
-                        <td>नोड B दूरी 3। रिलैक्स B➔D (3+5=8)। बाइनरी मिन-हीप के साथ समय O((V+E) log V)।</td>
-                    </tr>
-                    <tr>
-                        <td><b>0:56 - 1:09</b></td>
-                        <td>Crucial rule: Non-negative weights required! If negative edges exist, use Bellman-Ford.</td>
-                        <td>नियम: केवल नॉन-नेगेटिव एज वेट्स मान्य हैं! नेगेटिव वेट्स के लिए बेलमैन-फोर्ड इस्तेमाल करें।</td>
-                    </tr>
-                    <tr>
-                        <td><b>1:09 - 1:25</b></td>
-                        <td>Final Shortest Path Tree locked! Powers OSPF internet routing and Google Maps GPS.</td>
-                        <td>शॉर्टेस्ट पाथ ट्री पूरा हुआ! यह OSPF इंटरनेट रूटिंग और गूगल मैप्स GPS को चलाता है।</td>
-                    </tr>
-                </tbody>
-            </table>
+            <details style="margin-top:16px; background:#0f172a; border:1px solid #334155; border-radius:10px; padding:14px 18px;">
+                <summary style="cursor:pointer; color:#38bdf8; font-weight:600; font-size:13px;">
+                    📜 View Synchronized Subtitle Transcript (Optional Reference)
+                </summary>
+                <div style="margin-top:14px;">
+                    <table class="sub-table">
+                        <thead>
+                            <tr>
+                                <th style="width:120px;">Timestamp</th>
+                                <th>English Subtitle</th>
+                                <th>हिंदी सबटाइटल</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><b>0:00 - 0:08</b></td><td>Welcome to Dijkstra's Single-Source Shortest Path Algorithm (SSSP).</td><td>डाइक्स्ट्रा सिंगल-सोर्स शॉर्टेस्ट पाथ एल्गोरिदम में आपका स्वागत है।</td></tr>
+                            <tr><td><b>0:08 - 0:18</b></td><td>Initialization: Source node A set to distance 0, other nodes set to infinity.</td><td>प्रारंभ: सोर्स नोड A की दूरी 0, और बाकी नोड्स की दूरी अनंत (infinity) रखी गई।</td></tr>
+                            <tr><td><b>0:18 - 0:29</b></td><td>Greedy choice: Extract min node A (d=0). Relax outgoing edges A➔B (4) and A➔C (2).</td><td>ग्रीडी चॉइस: न्यूनतम दूरी नोड A (d=0)। एज रिलैक्सेशन A➔B (4) और A➔C (2)।</td></tr>
+                            <tr><td><b>0:29 - 0:43</b></td><td>Node C has min dist 2. Relax C➔B (2+1=3 &lt; 4, updated!) and C➔E (2+8=10).</td><td>नोड C न्यूनतम दूरी 2 पर। रिलैक्स C➔B (2+1=3 &lt; 4, अपडेट!) और C➔E (2+8=10)।</td></tr>
+                            <tr><td><b>0:43 - 0:56</b></td><td>Node B has min dist 3. Relax B➔D (3+5=8). Complexity with Min-Heap is O((V+E) log V).</td><td>नोड B दूरी 3। रिलैक्स B➔D (3+5=8)। बाइनरी मिन-हीप के साथ समय O((V+E) log V)।</td></tr>
+                            <tr><td><b>0:56 - 1:09</b></td><td>Crucial rule: Non-negative weights required! If negative edges exist, use Bellman-Ford.</td><td>नियम: केवल नॉन-नेगेटिव एज वेट्स मान्य हैं! नेगेटिव वेट्स के लिए बेलमैन-फोर्ड इस्तेमाल करें।</td></tr>
+                            <tr><td><b>1:09 - 1:25</b></td><td>Final Shortest Path Tree locked! Powers OSPF internet routing and Google Maps GPS.</td><td>शॉर्टेस्ट पाथ ट्री पूरा हुआ! यह OSPF इंटरनेट रूटिंग और गूगल मैप्स GPS को चलाता है।</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
         </div>
     </div>
 
@@ -923,7 +914,40 @@
     }
 
     // Video Language Switcher
+    const SUBTITLE_TIMESTAMPS = [
+        { start: 0.0, end: 8.0, en: "Welcome to Dijkstra's Single-Source Shortest Path Algorithm (SSSP).", hi: "डाइक्स्ट्रा सिंगल-सोर्स शॉर्टेस्ट पाथ एल्गोरिदम में आपका स्वागत है।" },
+        { start: 8.0, end: 18.0, en: "Initialization: Source node A set to distance 0, other nodes set to infinity.", hi: "प्रारंभ: सोर्स नोड A की दूरी 0, और बाकी नोड्स की दूरी अनंत (infinity) रखी गई।" },
+        { start: 18.0, end: 29.0, en: "Greedy choice: Extract min node A (d=0). Relax outgoing edges A➔B (4) and A➔C (2).", hi: "ग्रीडी चॉइस: न्यूनतम दूरी नोड A (d=0)। एज रिलैक्सेशन A➔B (4) और A➔C (2)।" },
+        { start: 29.0, end: 43.0, en: "Node C has min dist 2. Relax C➔B (2+1=3 < 4, updated!) and C➔E (2+8=10).", hi: "नोड C न्यूनतम दूरी 2 पर। रिलैक्स C➔B (2+1=3 < 4, अपडेट!) और C➔E (2+8=10)।" },
+        { start: 43.0, end: 56.0, en: "Node B has min dist 3. Relax B➔D (3+5=8). Complexity with Min-Heap is O((V+E) log V).", hi: "नोड B दूरी 3। रिलैक्स B➔D (3+5=8)। बाइनरी मिन-हीप के साथ समय O((V+E) log V)।" },
+        { start: 56.0, end: 69.0, en: "Crucial rule: Non-negative weights required! If negative edges exist, use Bellman-Ford.", hi: "नियम: केवल नॉन-नेगेटिव एज वेट्स मान्य हैं! नेगेटिव वेट्स के लिए बेलमैन-फोर्ड इस्तेमाल करें।" },
+        { start: 69.0, end: 85.0, en: "Final Shortest Path Tree locked! Powers OSPF internet routing and Google Maps GPS.", hi: "शॉर्टेस्ट पाथ ट्री पूरा हुआ! यह OSPF इंटरनेट रूटिंग और गूगल मैप्स GPS को चलाता है।" }
+    ];
+
+    let currentVideoLang = 'en';
+
+    function updateVideoSubtitles() {
+        const player = document.getElementById('mainVideoPlayer');
+        const ccBox = document.getElementById('videoLiveCC');
+        if (!player || !ccBox) return;
+
+        const cur = player.currentTime;
+        let matched = false;
+        for (const cue of SUBTITLE_TIMESTAMPS) {
+            if (cur >= cue.start && cur < cue.end) {
+                ccBox.textContent = currentVideoLang === 'hi' ? cue.hi : cue.en;
+                ccBox.style.opacity = '1';
+                matched = true;
+                break;
+            }
+        }
+        if (!matched) {
+            ccBox.style.opacity = '0';
+        }
+    }
+
     function setVideoLang(lang) {
+        currentVideoLang = lang;
         const player = document.getElementById('mainVideoPlayer');
         const src = document.getElementById('videoSource');
         const btnEn = document.getElementById('btnLangEn');
@@ -940,6 +964,7 @@
         }
         player.load();
         player.play().catch(() => {});
+        updateVideoSubtitles();
     }
 
     // Simulator Handler
@@ -1058,6 +1083,10 @@
 
     // Init
     window.addEventListener('DOMContentLoaded', () => {
+        const player = document.getElementById('mainVideoPlayer');
+        if (player) {
+            player.addEventListener('timeupdate', updateVideoSubtitles);
+        }
         renderSim(0);
         renderQuiz();
         loadDocContent(Object.keys(DOCS_DATA)[0]);
